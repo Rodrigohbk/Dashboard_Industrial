@@ -1,3 +1,9 @@
+# Dependências e segredos
 **/node_modules/
 nodered-data/flows_cred.json
 .env
+
+# Volumes de dados binários (não versionar)
+influxdb3-data/
+grafana-data/
+explorer-db/
