@@ -1,0 +1,16 @@
+﻿Setor Responsável ;IP CLP Origem Informacao;Endereço no Supervisório ;Endereço CLP;Nomenclatura UNS para Aplicação WEB
+Caldeira;192.168.6.220:502:255;FP:53001;RM 500;Caldeira.Balao.Nivel
+Caldeira;192.168.6.220:502:255;FP:52009;RM 4;Caldeira.Master.Pressao
+Caldeira;192.168.6.220:502:255;FP:52027;RM 13;Caldeira.VaporSuperAquecido.Temperatura
+Caldeira;192.168.6.220:502:255;FP:52013;RM 6;Caldeira.AguaAlimentacao.Pressao
+Caldeira;192.168.6.220:502:255;FP:52019;RM 9;Caldeira.Desaerador.Nivel
+Caldeira;192.168.6.220:502:255;FP:52021;RM 10;Caldeira.Desaerador.Pressao
+Caldeira;192.168.6.220:502:255;FP:52015;RM 7;Caldeira.AguaAbrandada.Nivel
+Caldeira;192.168.6.220:502:255;FP:52479;RM 239;Caldeira.RedutoraVapor.Valvula
+Caldeira;192.168.6.220:502:255;FP:52017;RM 8;Caldeira.AguaClarificada.Nivel
+Caldeira;192.168.6.220:502:255;FP:52023;RM 11;Caldeira.Desaerador.Temperatura
+Caldeira;192.168.6.220:502:255;FP:52571;RM 285;Caldeira.ControleTemperaturaDesaerador.Valvula
+Caldeira;192.168.6.220:502:255;FP:52005;RM 2;Caldeira.AguaEntrada.Vazao
+Caldeira;192.168.6.220:502:255;FP:52003;RM 1;Caldeira.VaporSaida.Vazao
+Caldeira;192.168.6.220:502:255;FP:52039;RM 19;Caldeira.AguaBruta.Vazao
+Caldeira;192.168.6.220:502:255;FP:52025;RM 12;Caldeira.AguaAbrandada.Vazao

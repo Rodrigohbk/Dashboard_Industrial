@@ -1,0 +1,19 @@
+0 verbose cli /usr/local/bin/node /usr/src/node-red/node_modules/.bin/npm
+1 info using npm@10.9.9
+2 info using node@v22.23.2
+3 silly config load:file:/usr/src/node-red/node_modules/npm/npmrc
+4 silly config load:file:/usr/src/node-red/.npmrc
+5 silly config load:file:/usr/local/etc/npmrc
+6 verbose title npm list node-red-contrib-modbus
+7 verbose argv "list" "node-red-contrib-modbus"
+8 verbose logfile logs-max:10 dir:/data/.npm/_logs/2026-10-29T17_38_59_426Z-
+9 verbose logfile /data/.npm/_logs/2026-10-29T17_38_59_426Z-debug-0.log
+10 silly logfile done cleaning log files
+11 silly packumentCache heap:2049441792 maxSize:512360448 maxEntrySize:256180224
+12 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+13 verbose cwd /usr/src/node-red
+14 verbose os Linux 6.18.54.1-microsoft-standard-WSL2
+15 verbose node v22.23.2
+16 verbose npm  v10.9.9
+17 verbose exit 1
+18 verbose code 1

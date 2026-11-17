@@ -1,0 +1,14 @@
+﻿Setor Responsável ;IP CLP Origem Informacao;Endereço no Supervisório ;Endereço CLP;Nomenclatura UNS para Aplicação WEB
+Gerador;192.168.6.65:502:255;FP:54067;RM 1033;Gerador.G1.Tensao
+Gerador;192.168.6.65:502:255;FP:54073;RM 1036;Gerador.G1.Corrente
+Gerador;192.168.6.65:502:255;FP:52001;RM 0 ;Gerador.G1.RPM
+Gerador;192.168.6.65:502:255;FP:54113;RM 1056;Gerador.G1.Frequencia
+Gerador;192.168.6.65:502:255;FP:54225;RM 1112;Gerador.G2.Tensao
+Gerador;192.168.6.65:502:255;FP:54235;RM 1117;Gerador.G2.Corrente
+Gerador;192.168.6.65:502:255;FP:52041;RM 20;Gerador.G2.RPM
+Gerador;192.168.6.65:502:255;FP:54213;RM 1106;Gerador.G2.Frequencia
+Gerador;192.168.6.65:502:255;4X:32141;DM 70;Gerador.G2.PotenciaAtiva
+Concessionária;192.168.6.65:502:255;FP:54007;RM 1003;Concessionaria.Tensao
+Concessionária;192.168.6.65:502:255;FP:54013;RM 1006;Concessionaria.Corrente
+Concessionária;192.168.6.65:502:255;FP:54021;RM 1010;Concessionaria.Potencia 
+Concessionária;192.168.6.65:502:255;FP:54053;RM 1026;Concessionaria.Frequencia

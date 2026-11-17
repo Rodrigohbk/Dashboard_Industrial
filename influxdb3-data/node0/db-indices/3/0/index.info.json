@@ -1,0 +1,30 @@
+{
+  "node_id": "node0",
+  "db_id": 3,
+  "table_id": 0,
+  "files": [
+    {
+      "id": 1800,
+      "path": "node0/dbs/3/0/2026-10-29/18-50/0000032076.parquet",
+      "size_bytes": 4286,
+      "row_count": 161,
+      "chunk_time": 1793299800000000000,
+      "min_time": 1793300130616000000,
+      "max_time": 1793300399764000000
+    },
+    {
+      "id": 1803,
+      "path": "node0/dbs/3/0/2026-10-29/19-00/0000032076.parquet",
+      "size_bytes": 4181,
+      "row_count": 161,
+      "chunk_time": 1793300400000000000,
+      "min_time": 1793300400178000000,
+      "max_time": 1793300665633000000
+    }
+  ],
+  "latest_snapshot_sequence_number": 47,
+  "parquet_size_bytes": 8467,
+  "row_count": 322,
+  "min_time": 1793300130616000000,
+  "max_time": 1793300665633000000
+}

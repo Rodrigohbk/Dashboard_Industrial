@@ -1,0 +1,8 @@
+﻿Moenda;192.168.6.224:502:255;FP:52023;RM 11;Moenda.PrimeiroAcionamento.RPM
+Moenda;192.168.6.224:502:255;FP:52223;RM 111;Moenda.Rotacao.VPM
+Moenda;192.168.6.224:502:255;FP:52005;RM 2;Moenda.Desfibrador.RPM
+Moenda;192.168.6.224:502:255;FP:52007;RM 3;Moenda.AguaEmbebicao.Temperatura
+Moenda;192.168.6.224:502:255;FP:52009;RM 4;Moenda.TanqueEmbebicao.Nivel
+Moenda;192.168.6.224:502:255;FP:53081;RM 540;Moenda.Terno01.Nivel
+Moenda;192.168.6.224:502:255;FP:52013;RM 6;Moenda.AguaEmbebicao.Vazao
+Moenda;192.168.6.224:502:255;4X:8191.1;WM 1190.1;Moenda.EmOperacao.Status

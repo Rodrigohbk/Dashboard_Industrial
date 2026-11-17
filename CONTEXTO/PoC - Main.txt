@@ -1,0 +1,207 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 0,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "title": "Ver Histórico",
+              "url": "/d/poc-variable/poc-variavel?var-variable=Caldeira.Balao.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#56B4E9",
+                "value": 0
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Balao.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Balao Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "title": "Ver Histórico",
+              "url": "/d/poc-variable/poc-variavel?var-variable=Caldeira.Master.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "pressurekgfcm2"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Master.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Master Pressao",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 6
+      },
+      "id": 100,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href='/d/poc-sector/poc-setor?var-sector=Caldeira' style='text-decoration: none; color: inherit; display: block;'><div style='background-color: #2c3235; padding: 15px; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;' onmouseover=\"this.style.backgroundColor='#3d4349'\" onmouseout=\"this.style.backgroundColor='#2c3235'\"><h3 style='margin: 0; color: #ffffff;'>CALDEIRA</h3><p style='margin: 0; color: #8e8e8e;'>Clique aqui para ver o histórico de todas as variáveis do setor</p></div></a>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.3.10",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 42,
+  "tags": [
+    "PoC"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "PoC - Main",
+  "uid": "poc-main",
+  "version": 11
+}

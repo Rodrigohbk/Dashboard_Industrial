@@ -1,0 +1,48 @@
+﻿Setor Responsável ;Endereço CLP Origem;Endereço no Supervisório ;Endereço CLP;Nomenclatura UNS para Aplicação WEB
+Caldeira;192.168.6.231:502:255;FP:53091;RM 545;Caldeira.TotalizadorAguaEntrada.Vazao
+Caldeira;192.168.6.231:502:255;FP:53093;RM 546;Caldeira.RedutoraVapor.Valvula
+Caldeira;192.168.6.231:502:255;FP:53109;RM 554;Caldeira.TotalizadorVapor.Vazao
+Caldeira;192.168.6.231:502:255;FP:53111;RM 555;Caldeira.TotalizadorVaporANT.Vazao
+Caldeira;192.168.6.231:502:255;FP:53085;RM 542;Caldeira.TotalizadorAguaBruta.Vazao
+Caldeira;192.168.6.231:502:255;FP:53087;RM 543;Caldeira.TotalizadorAguaBrutaANT.Vazao
+Caldeira;192.168.6.231:502:255;FP:53103;RM 551;Caldeira.TotalizadorAguaAbrandada.Vazao
+Caldeira;192.168.6.231:502:255;FP:53105;RM 552;Caldeira.TotalizadorAguaAbrandadaANT.Vazao
+Caldeira;192.168.6.231:502:255;FP:53097;RM 548;Caldeira.TotalizadorCondensado.Vazao
+Caldeira;192.168.6.231:502:255;FP:53099;RM 549;Caldeira.TotalizadorCondensadoANT.Vazao
+Moenda;192.168.6.231:502:255;FP:53079;RM 539;Moenda.TotalizadorAguaEmbebicao.Vazao
+Moenda;192.168.6.231:502:255;FP:53081;RM 540;Moenda.TotalizadorAguaEmbebicaoANT.Vazao
+Centrifogas Massa A;192.168.6.231:502:255;4X:11001.14;WM 4000.14;Fabrica.BMA01MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11001.15;WM 4000.15;Fabrica.BMA02MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.0;WM 4001.0;Fabrica.BMA03MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.1;WM 4001.1;Fabrica.BMA04MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.2;WM 4001.2;Fabrica.BMA05MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.13;WM 4001.13;Fabrica.BMA06MassaA.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11001.11;WM 4000.11;Fabrica.KONT01MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11001.12;WM 4000.12;Fabrica.KONT02MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11002.15;WM 4000.13;Fabrica.KONT03MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11003.5;WM 4002.5;Fabrica.KONT04MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11003.6;WM 4002.6;Fabrica.KONT05MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11003.8;WM 4002.8;Fabrica.KONT06MassaB.Status
+Fabrica;192.168.6.231:502:255;FP:53073;RM 536;Fabrica.TotalizadorDosado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53075;RM 537;Fabrica.TotalizadorDosadoANT.Vazao
+Fabrica;192.168.6.231:502:255;FP:53067;RM 533;Fabrica.TotalizadorClarificado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53069;RM 534;Fabrica.TotalizadorClarificadoANT.Vazao
+Fabrica;192.168.6.231:502:255;FP:53061;RM 530;Fabrica.TotalizadorFiltrado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53063;RM 531;Fabrica.TotalizadorFiltradoANT.Vazao
+Fabrica;192.168.6.231:502:255;FP:53055;RM 527;Fabrica.TotalizadorXarope.Vazao
+Fabrica;192.168.6.231:502:255;FP:53057;RM 528;Fabrica.TotalizadorXaropeANT.Vazao
+Fabrica;192.168.6.231:502:255;FP:52017;RM 8;Fabrica.MelFinal.Vazao
+Fabrica;192.168.6.231:502:255;FP:53049;RM 524;Fabrica.TotalizadorMelFinal.Vazao
+Fabrica;192.168.6.231:502:255;FP:53051;RM 525;Fabrica.TotalizadorMelFinalEND.Vazao 
+Fabrica;192.168.6.231:502:255;FP:52825;RM 412;Fabrica.TotalizadorLodo.Vazao
+Fabrica;192.168.6.231:502:255;FP:52827;RM 413;Fabrica.TotalizadorLodoEND.Vazao
+Fabrica;192.168.6.231:502:255;FP:52007;RM 3;Fabrica.MassaA.Nivel
+Fabrica;192.168.6.231:502:255;FP:52003;RM 1;Fabrica.MassaB.Nivel
+Fabrica;192.168.6.231:502:255;FP:52027;RM 13;Fabrica.Xarope.Nivel
+Gerador;192.168.6.231:502:255;FP:53043;RM 521;Gerador.TotalizadorG1.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53045;RM 522;Gerador.TotalizadorG1ANT.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53155;RM 577;Gerador.G1MAISG2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53149;RM 574;Gerador.TotalizadorG1G2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53151;RM 575;Gerador.TotalizadorG1G2ANT.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53155;RM 577;Gerador.G1MAISG2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53143;RM 571;Gerador.TotalizadorG2.PotenciaAtiva

@@ -1,0 +1,98 @@
+﻿Setor Responsável ;Nomenclatura UNS para Aplicação WEB;Unidade de Medida
+Caldeira;Caldeira.Balao.Nivel;0 - 100 %
+Caldeira;Caldeira.Master.Pressao;Kgf/cm²
+Caldeira;Caldeira.VaporSuperAquecido.Temperatura;°C
+Caldeira;Caldeira.AguaAlimentacao.Pressao;Kgf/cm²
+Caldeira;Caldeira.VaporEscape.Pressao;Kgf/cm²
+Caldeira;Caldeira.Desaerador.Nivel;0 - 100 %
+Caldeira;Caldeira.Desaerador.Pressao;Kgf/cm²
+Caldeira;Caldeira.AguaAbrandada.Nivel;0 - 100 %
+Caldeira;Caldeira.RedutoraVapor.Valvula;0 - 100 %
+Caldeira;Caldeira.AguaClarificada.Nivel;0 - 100 %
+Caldeira;Caldeira.Desaerador.Temperatura;°C
+Caldeira;Caldeira.ControleTemperaturaDesaerador.Valvula;0 - 100 %
+Caldeira;Caldeira.AguaEntrada.Vazao;m³/H
+Caldeira;Caldeira.TotalizadorAguaEntrada.Vazao;m³/dia
+Caldeira;Caldeira.RedutoraVapor.Valvula;0 - 100 %
+Caldeira;Caldeira.VaporSaida.Vazao;Ton/H
+Caldeira;Caldeira.TotalizadorVapor.Vazao;Ton/dia
+Caldeira;Caldeira.TotalizadorVaporANTERIOR.Vazao;Ton/dia
+Caldeira;Caldeira.AguaBruta.Vazao;m³/H
+Caldeira;Caldeira.TotalizadorAguaBruta.Vazao;m³/dia
+Caldeira;Caldeira.TotalizadorAguaBrutaANTERIOR.Vazao;m³/dia
+Caldeira;Caldeira.AguaAbrandada.Vazao;m³/H
+Caldeira;Caldeira.TotalizadorAguaAbrandada.Vazao;m³/dia
+Caldeira;Caldeira.TotalizadorAguaAbrandadaANTERIOR.Vazao;m³/dia
+Caldeira;Caldeira.CondensadoEscapeV1.Vazao;m³/H
+Caldeira;Caldeira.TotalizadorCondensado.Vazao;m³/dia
+Caldeira;Caldeira.TotalizadorCondensadoANTERIOR.Vazao;m³/dia
+Moenda;Moenda.PrimeiroAcionamento.RPM;RPM - Rotações Por Minuto
+Moenda;Moenda.Desfibrador.RPM;RPM - Rotações Por Minuto
+Moenda;Moenda.Rotacao.VPM;VPM - Velocídade Média Periférica
+Moenda;Moenda.TanqueEmbebicao.Nivel;0 - 100 %
+Moenda;Moenda.AguaEmbebicao.Vazao;m³/H
+Moenda;Moenda.TotalizadorAguaEmbebicao.Vazao;m³/dia
+Moenda;Moenda.TotalizadorAguaEmbebicaoANTERIOR.Vazao;m³/dia
+Moenda;Moenda.AguaEmbebicao.Temperatura;°C
+Moenda;Moenda.Terno01.Nivel;0 - 100 %
+Moenda;Moenda.EmOperacao.Status;0 - OFF ou 1 - ON
+Centrifogas Massa A;Fabrica.BMA01MassaA.Status;0 - OFF ou 1 - ON
+Centrifogas Massa A;Fabrica.BMA02MassaA.Status;0 - OFF ou 1 - ON
+Centrifogas Massa A;Fabrica.BMA03MassaA.Status;0 - OFF ou 1 - ON
+Centrifogas Massa A;Fabrica.BMA04MassaA.Status;0 - OFF ou 1 - ON
+Centrifogas Massa A;Fabrica.BMA05MassaA.Status;0 - OFF ou 1 - ON
+Centrifogas Massa A;Fabrica.BMA06MassaA.Status;0 - OFF ou 1 - ON
+Centrifogas Massa B;Fabrica.KONT01MassaB.Status;0 - OFF ou 1 - ON
+Centrifogas Massa B;Fabrica.KONT02MassaB.Status;0 - OFF ou 1 - ON
+Centrifogas Massa B;Fabrica.KONT03MassaB.Status;0 - OFF ou 1 - ON
+Centrifogas Massa B;Fabrica.KONT04MassaB.Status;0 - OFF ou 1 - ON
+Centrifogas Massa B;Fabrica.KONT05MassaB.Status;0 - OFF ou 1 - ON
+Centrifogas Massa B;Fabrica.KONT06MassaB.Status;0 - OFF ou 1 - ON
+Fabrica;Fabrica.Dosado.Nivel;0 - 100 %
+Fabrica;Fabrica.PH.Medicao;PH
+Fabrica;Fabrica.Clarificado.Nivel;0 - 100 %
+Fabrica;Fabrica.Decantador.Temperatura;°C
+Fabrica;Fabrica.V1.Pressao;Kgf/cm²
+Fabrica;Fabrica.AguaBruta.Pressao;Kgf/cm²
+Fabrica;Fabrica.Dosado.Vazao;m³/H
+Fabrica;Fabrica.TotalizadorDosado.Vazao;m³/dia
+Fabrica;Fabrica.TotalizadorDosadoANTERIOR.Vazao;m³/dia
+Fabrica;Fabrica.Clarificado.Vazao;m³/H
+Fabrica;Fabrica.TotalizadorClarificado.Vazao;m³/dia
+Fabrica;Fabrica.TotalizadorClarificadoANTERIOR.Vazao;m³/dia
+Fabrica;Fabrica.Filtrado.Vazao;m³/H
+Fabrica;Fabrica.TotalizadorFiltrado.Vazao;m³/dia
+Fabrica;Fabrica.TotalizadorFiltradoANTERIOR.Vazao;m³/dia
+Fabrica;Fabrica.Xarope.Vazao;m³/H
+Fabrica;Fabrica.TotalizadorXarope.Vazao;m³/dia
+Fabrica;Fabrica.TotalizadorXaropeANTERIOR.Vazao;m³/dia
+Fabrica;Fabrica.MelFinal.Vazao;m³/H
+Fabrica;Fabrica.TotalizadorMelFinal.Vazao;m³/dia
+Fabrica;Fabrica.TotalizadorMelFinalANTERIOR.Vazao ;m³/dia
+Fabrica;Fabrica.Lodo.Vazao;m³/H
+Fabrica;Fabrica.TotalizadorLodo.Vazao;m³/dia
+Fabrica;Fabrica.TotalizadorLodoANTERIOR.Vazao;m³/dia
+Fabrica;Fabrica.MassaA.Nivel;0 - 100 %
+Fabrica;Fabrica.MassaB.Nivel;0 - 100 %
+Fabrica;Fabrica.Xarope.Nivel;0 - 100 %
+Fabrica;Fabrica.BrixXarope.Valor;Brix
+Gerador;Gerador.G1.Tensao;Volts
+Gerador;Gerador.G1.Corrente;Amperes
+Gerador;Gerador.G1.RPM;RPM - Rotações Por Minuto
+Gerador;Gerador.G1.Frequencia;Hz
+Gerador;Gerador.TotalizadorG1.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.TotalizadorG1ANT.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.G1MAISG2.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.TotalizadorG1G2.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.TotalizadorG1G2ANT.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.G2.Tensao;Volts
+Gerador;Gerador.G2.Corrente;Amperes
+Gerador;Gerador.G2.RPM;RPM - Rotações Por Minuto
+Gerador;Gerador.G2.Frequencia;Hz
+Gerador;Gerador.G2.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.G1MAISG2.PotenciaAtiva;Kilo Watts
+Gerador;Gerador.TotalizadorG2.PotenciaAtiva;Kilo Watts
+Concessionária;Concessionaria.Tensao;Volts
+Concessionária;Concessionaria.Corrente;Amperes
+Concessionária;Concessionaria.Potencia ;Kilo Watts
+Concessionária;Concessionaria.Frequencia;Hz

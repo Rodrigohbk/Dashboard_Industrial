@@ -1,0 +1,14 @@
+{
+  "version": "1",
+  "node_id": "node0",
+  "next_file_id": 31,
+  "snapshot_sequence_number": 28,
+  "wal_file_sequence_number": 17132,
+  "catalog_sequence_number": 1328,
+  "parquet_size_bytes": 0,
+  "row_count": 0,
+  "min_time": 9223372036854775807,
+  "max_time": -9223372036854775808,
+  "databases": [],
+  "removed_files": []
+}

@@ -1,0 +1,70 @@
+Abaixo está o arquivo `Contexto_MVP_Usina_VHP.md`, consolidando todas as decisões arquiteturais e, principalmente, as **regras de ouro para a elaboração do JSON do Grafana**, que foi onde tivemos a maior curva de aprendizado.
+
+Você pode salvar o conteúdo abaixo em um arquivo `.md` no seu computador.
+
+***
+
+# Contexto do Projeto - Monitoramento Usina VHP (MVP)
+
+## 1. Visão Geral da Arquitetura
+*   **Stack:** Docker (Windows 10), Node-RED, InfluxDB 3 Core (banco `vhp_mvp`), Grafana (v12.3.10) e InfluxDB 3 Explorer.
+*   **Rede Industrial:** O CLP da Fábrica (**192.168.6.231**) atua como **Mestre Centralizador**. Ele coleta os dados dos outros 4 CLPs (Evaporação, Moenda, Caldeira, Gerador) e o Node-RED lê apenas do CLP Mestre.
+*   **Volume de Dados:** 97 variáveis (Floats RM e Bits WM).
+
+## 2. Node-RED (O Padrão de Ouro da Coleta)
+*   **Sequenciamento:** Utiliza o nó `modbus-flex-sequencer`.
+*   **Timing (Crucial):** 
+    *   `commandDelay`: **75 ms** (equilíbrio entre velocidade e não sobrecarregar o CLP).
+    *   `bufferCommands`: **false** (evita o erro fatal `Queue full for UnitId 255`).
+    *   Polling (Injetor): A cada **10 segundos** (ciclo de leitura leva ~7,2s, gerando folga de 2,8s).
+*   **Decodificação:** Float32 com inversão de palavras **CDAB**. Bits são extraídos via operação bitwise `(word >> bit) & 1`.
+*   **Destino:** Measurement `plc_data`, Tag `plc: 'mestre_231'`.
+
+## 3. Regras de Ouro para o JSON do Grafana (Aprendizados Críticos)
+
+### 3.1. Sintaxe das Queries SQL (InfluxDB 3 / DataFusion)
+*   **NUNCA use parênteses no nome da variável:** `SELECT ("Variavel")` causa erro ou dados nulos.
+*   **Sintaxe Correta:** `SELECT "Nome.da.Variavel" AS value FROM plc_data WHERE $__timeFilter(time)`.
+*   **Para Gráficos de Linha (Time Series):** A coluna `time` é obrigatória no SELECT: `SELECT time, "Nome.da.Variavel" AS value FROM plc_data WHERE $__timeFilter(time) ORDER BY time`.
+
+### 3.2. Unidades de Medida (UoM)
+*   **Evitar `custom:`:** O Grafana 12.3.10 não renderiza bem `custom:Kgf/cm²` (exibe o texto bruto).
+*   **IDs Nativos:** Funcionam bem para unidades simples: `percent`, `celsius`, `volt`, `amp`, `kwatt`, `hertz`, `rotrpm`.
+*   **Sintaxe `suffix:`:** Obrigatória para unidades compostas ou texto personalizado: `"unit": "suffix: Kgf/cm²"`, `"unit": "suffix: m³/h"`, `"unit": "suffix: Ton/dia"`.
+
+### 3.3. Navegação (Drill-down) e UIDs
+*   **UIDs dos Dashboards:** Precisam ser definidos **manualmente** na tela de importação do Grafana para que os links funcionem. Nossa convenção:
+    *   Principal: `main-dashboard`
+    *   Variável: `var-dashboard`
+    *   Setor: `sector-dashboard`
+*   **Links nos Painéis (Stats):** Usar `"links": [{"url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.Balao.Nivel"}]` dentro de `fieldConfig.defaults`. Isso torna o número clicável.
+*   **Links em Cards (Text Panel):** Usar HTML puro com a tag `<a>` envolvendo o `<div>`.
+    ```html
+    <a href='/d/sector-dashboard/sector-dashboard?var-sector=Caldeira' style='text-decoration: none; color: inherit;'>
+      <div style='background-color: #2c3235; padding: 15px; border-radius: 5px;'>...</div>
+    </a>
+    ```
+*   **Variáveis de URL:** O dashboard de destino usa `type: "textbox"` (ex: `name: "variable"` ou `name: "sector"`) e a query SQL usa `$variable` ou `$sector`.
+
+### 3.4. UX/UI e DataViz (Mobile)
+*   **Paleta Okabe-Ito (Colorblind-safe):** 
+    *   Azul Ciano (`#56B4E9`)
+    *   Laranja Seguro (`#D55E00`)
+    *   Verde (`#009E73`)
+    *   Roxo (`#CC79A7`)
+    *   Azul Escuro (`#0072B2`)
+    *   Amarelo/Laranja (`#E69F00`)
+*   **Nível 1 (Main):** Foco no "agora" (`lastNotNull`). Texto grande (`textMode: "value"`). Sem Mín/Máx/Média.
+*   **Nível 2 (Variável):** Gráfico de linha suave (`spanNulls: true`, `showPoints: "never"`). Mín/Máx/Média em painéis Stat coloridos.
+*   **Nível 2 (Setor):** Rows colapsáveis (`"collapsed": true`) para evitar sobrecarga cognitiva. Mín/Máx/Média embutidos na **Legenda** (`calcs: ["min", "max", "mean"]`) para não ocupar espaço com cards.
+
+## 4. Estado Atual do Projeto
+*   **Coleta:** 100% estável (Node-RED sem erros de fila).
+*   **Banco:** InfluxDB recebendo os dados corretamente.
+*   **PoC (Prova de Conceito):** Concluída. Validamos a navegação, as cores, as estatísticas e os links clicáveis com 3 dashboards (Main, Setor e Variável).
+*   **Dashboard Oficial:** Os códigos JSON foram gerados com os 96 painéis divididos nos 3 níveis, prontos para importação.
+
+## 5. Próximos Passos
+1. Importar os 3 JSONs oficiais no Grafana (definindo os UIDs corretos).
+2. Validar a navegação completa no celular.
+3. Criar os dashboards de "Detalhe do Setor" para os demais setores (Moenda, Fábrica, Gerador, Concessionária), replicando a estrutura da Caldeira.

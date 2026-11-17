@@ -1,0 +1,130 @@
+# ESTADO ATUAL — Projeto Monitoramento Usina VHP
+**Data:** 03/10/2026
+**Sessão anterior:** mapeamento CLP Evaporação (em revisão)
+
+---
+
+## ✅ CONCLUÍDO
+
+### Infraestrutura
+- Stack Docker rodando: InfluxDB 3 Core, Node-RED, Grafana, Explorer
+- Bind mounts em C:\usina-monitor\
+- Healthchecks + depends_on:service_healthy
+- Ordem de inicialização garantida
+- POP-001 a POP-004 documentados
+- Documentação em docs/ (GLOSSARIO, ARQUITETURA, MANUTENCAO, PADROES_CODIGO)
+
+### CLP Fábrica (192.168.6.231)
+- ~200 variáveis mapeadas
+- Manifest-driven flow implementado e funcionando
+- Dados chegando no InfluxDB
+- Referência cruzada em docs/REFERENCIA_CRUZADA_FABRICA.csv
+
+### Convenções estabelecidas
+- Unit ID: 255
+- FC: 3 (somente leitura)
+- Protocolo 0-based: endereço = CSV - 1
+- Float32: ordem CDAB (word-swapped)
+- Polling: 5 segundos
+- UNS: Setor.Equipamento.Grandeza
+- Sufixos PID: .SP→setpoint, .KP→pid_ganho, .RT→pid_integral,
+  .DT→pid_derivativo, .MV→saida_pid, .AM→modo_auto_manual,
+  .ST→em_operacao, .LG→comando_ligar, .DL→comando_desligar
+
+### Fórmulas CLP Citrino FX
+- ST: índice
+- DI: 1000 + bloco(16)
+- DO: 2000 + bloco(16)
+- AI: 3000 + índice
+- AO: 5000 + índice
+- WM: 7001 + índice_WM
+- DM: 32001 + (índice × 2)
+- DF: 42001 + (índice × 2)
+- RM: 52001 + (índice × 2)
+
+---
+
+## 🔄 EM ANDAMENTO
+
+### CLP Evaporação (192.168.6.228)
+- Status: **REINICIANDO DO ZERO**
+- Motivo: erros de mapeamento cometidos na sessão anterior
+  (fórmula RM aplicada sem verificar existência no CLP)
+- Decisão: aplicar novo método em 5 fases (ver próxima seção)
+
+---
+
+## ⏸️ PENDENTE
+
+1. Inventário de memória do CLP Evaporação
+   (limites reais de RM, WM, DM, DF, AI, AO, ST)
+2. CSV completo exportado do Citrino Tools (sem filtros)
+3. Aplicar método de 5 fases ao CLP Evaporação
+4. Repetir processo para: Moenda, Caldeira, Gerador
+5. Dashboards Grafana
+6. Acesso remoto HTTPS
+7. Produção: Git, backup automático, nobreak
+
+---
+
+## 🎯 PRÓXIMO PASSO IMEDIATO
+
+Você envia:
+- [ ] Print do "Memória e Tags" do Citrino Tools (Evaporação)
+- [ ] CSV completo do relatório do CLP Evaporação
+- [ ] Confirmação de início da Fase 1
+
+---
+
+## ⚠️ ATENÇÃO / LIÇÕES APRENDIDAS
+
+1. **NÃO confiar em fórmula sem validar contra 3 exemplos reais**
+2. **NÃO propor UNS antes de confirmar que o endereço existe no CLP**
+3. **Processar em lotes de 30 linhas, não tudo de uma vez**
+4. **Sessões curtas (1 fase = 1 sessão)**
+5. **Sempre cruzar com: CSV Citrino + Ladder + teste real**
+
+### Método de 5 fases para cada CLP
+- Fase 0: Inventário (você faz)
+- Fase 1: Filtragem (lotes de 30)
+- Fase 2: Nomenclatura UNS
+- Fase 3: Manifest JSON
+- Fase 4: Implementação Node-RED
+
+---
+
+## 📚 REFERÊNCIAS PARA BUSCAR DETALHES
+
+Se precisar de algum detalhe que não está aqui, consulte:
+
+| Assunto | Onde buscar |
+|---|---|
+| Fluxo Node-RED da Fábrica | Aba "Fabrica - Producao" no Node-RED |
+| Endereços validados da Fábrica | docs/REFERENCIA_CRUZADA_FABRICA.csv |
+| JSON do manifest da Fábrica | Sessão anterior (cópia manual) |
+| Termos técnicos | docs/GLOSSARIO.md |
+| POPs operacionais | docs/POPs/ |
+| Convenções de código | docs/PADROES_CODIGO.md |
+| Livros de referência | Eng. Software Moderna (engsoftmoderna.info) e Manutenção de Software (manutencaosoftware.org) |
+| Manual CLP | PDF "CITRINO-FX_Manual_pt_v1.pdf" |
+| Manual Software | PDF "Manual Software Citrino Tools.pdf" |
+
+---
+
+## 🔧 CONTEXTO TÉCNICO ADICIONAL
+
+### IPs dos CLPs
+- Fábrica: 192.168.6.231
+- Evaporação: 192.168.6.228
+- Moenda: 192.168.6.224
+- Caldeira: 192.168.6.220
+- Gerador: 192.168.6.65
+
+### Serviços e portas
+- Node-RED: 1880
+- Grafana: 3000
+- InfluxDB: 8181
+- Explorer: 8080
+
+### Diretório do projeto
+C:\usina-monitor\

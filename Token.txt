@@ -1,0 +1,9 @@
+New token created successfully!
+
+Token: apiv3_lJwPKeJpiJbg5bDWDeBMVJepvm8dFLO5WNiYH6tt2pMOFrjaTDBxSOE223WONvVV-HHWjtSePTjBkRKA5aI5uA
+HTTP Requests Header: Authorization: Bearer apiv3_lJwPKeJpiJbg5bDWDeBMVJepvm8dFLO5WNiYH6tt2pMOFrjaTDBxSOE223WONvVV-HHWjtSePTjBkRKA5aI5uA
+
+
+Grafana
+login: admin	
+senha: usina@2025

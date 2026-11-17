@@ -1,0 +1,6992 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 0,
+  "links": [],
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 1,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href='/d/sector-dashboard/sector-dashboard?var-sector=Caldeira' style='text-decoration: none; color: inherit; display: block;'><div style='background-color: #2c3235; padding: 15px; border-radius: 5px; cursor: pointer;'><h3 style='margin: 0; color: #ffffff;'>CALDEIRA</h3><p style='margin: 0; color: #8e8e8e;'>Clique para ver o histórico do setor</p></div></a>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.3.10",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.Balao.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 3
+      },
+      "id": 2,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Balao.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Balao Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.Master.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Kgf/cm²"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 3
+      },
+      "id": 3,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Master.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Master Pressao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.VaporSuperAquecido.Temperatura"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 3
+      },
+      "id": 4,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.VaporSuperAquecido.Temperatura\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Vapor SuperAquecido Temp",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.AguaAlimentacao.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Kgf/cm²"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 3
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.AguaAlimentacao.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Alimentacao Pressao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.Desaerador.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 7
+      },
+      "id": 6,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Desaerador.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Desaerador Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.Desaerador.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Kgf/cm²"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 7
+      },
+      "id": 7,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Desaerador.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Desaerador Pressao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.Desaerador.Temperatura"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 7
+      },
+      "id": 8,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.Desaerador.Temperatura\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Desaerador Temp",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.AguaAbrandada.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 7
+      },
+      "id": 9,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.AguaAbrandada.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Abrandada Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.AguaClarificada.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 11
+      },
+      "id": 10,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.AguaClarificada.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Clarificada Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.VaporEscape.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Kgf/cm²"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 11
+      },
+      "id": 11,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.VaporEscape.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "VaporEscape Pressao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.ControleTemperaturaDesaerador.Valvula"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 11
+      },
+      "id": 12,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.ControleTemperaturaDesaerador.Valvula\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Ctrl Temp Desaera Valvula",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.RedutoraVapor.Valvula"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 11
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.RedutoraVapor.Valvula\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Redutora Vapor Valvula",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.AguaEntrada.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 15
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.AguaEntrada.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Entrada Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorAguaEntrada.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 15
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorAguaEntrada.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Entrada",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.VaporSaida.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Ton/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 15
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.VaporSaida.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Vapor Saida Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorVapor.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Ton/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 15
+      },
+      "id": 17,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorVapor.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Vapor",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorVaporANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Ton/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 19
+      },
+      "id": 18,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorVaporANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Vapor ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.AguaBruta.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 19
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.AguaBruta.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Bruta Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorAguaBruta.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 19
+      },
+      "id": 20,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorAguaBruta.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Bruta",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorAguaBrutaANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 19
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorAguaBrutaANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Bruta ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.AguaAbrandada.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 23
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.AguaAbrandada.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Abrandada Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorAguaAbrandada.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 23
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorAguaAbrandada.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Abrandada",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorAguaAbrandadaANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 23
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorAguaAbrandadaANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Abrandada ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.CondensadoEscapeV1.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 23
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.CondensadoEscapeV1.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Condensado Escape V1",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorCondensado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 27
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorCondensado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Condensado",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Caldeira.TotalizadorCondensadoANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 27
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Caldeira.TotalizadorCondensadoANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Condensado ANT",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 31
+      },
+      "id": 28,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href='/d/sector-dashboard/sector-dashboard?var-sector=Moenda' style='text-decoration: none; color: inherit; display: block;'><div style='background-color: #2c3235; padding: 15px; border-radius: 5px; cursor: pointer;'><h3 style='margin: 0; color: #ffffff;'>MOENDA</h3><p style='margin: 0; color: #8e8e8e;'>Clique para ver o histórico do setor</p></div></a>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.3.10",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.PrimeiroAcionamento.RPM"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: RPM"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 34
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.PrimeiroAcionamento.RPM\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Primeiro Acionamento",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.Rotacao.VPM"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: VPM"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 34
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.Rotacao.VPM\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Rotacao VPM",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.Desfibrador.RPM"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: RPM"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 34
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.Desfibrador.RPM\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Desfibrador RPM",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.AguaEmbebicao.Temperatura"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 34
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.AguaEmbebicao.Temperatura\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Embebicao Temp",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.TanqueEmbebicao.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 38
+      },
+      "id": 33,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.TanqueEmbebicao.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tanque Embebicao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.TotalizadorAguaEmbebicao.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 38
+      },
+      "id": 34,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.TotalizadorAguaEmbebicao.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Embebicao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.TotalizadorAguaEmbebicaoANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 38
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.TotalizadorAguaEmbebicaoANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Agua Embebicao ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.Terno01.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 38
+      },
+      "id": 36,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.Terno01.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Terno01 Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.AguaEmbebicao.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 42
+      },
+      "id": 37,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.AguaEmbebicao.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Embebicao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Moenda.EmOperacao.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 42
+      },
+      "id": 38,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Moenda.EmOperacao.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Moenda Status",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 46
+      },
+      "id": 39,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href='/d/sector-dashboard/sector-dashboard?var-sector=Fabrica' style='text-decoration: none; color: inherit; display: block;'><div style='background-color: #2c3235; padding: 15px; border-radius: 5px; cursor: pointer;'><h3 style='margin: 0; color: #ffffff;'>FABRICA / CENTRIFUGAS</h3><p style='margin: 0; color: #8e8e8e;'>Clique para ver o histórico do setor</p></div></a>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.3.10",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.PH.Medicao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: PH"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 49
+      },
+      "id": 40,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.PH.Medicao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "PH Medicao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.MassaB.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 49
+      },
+      "id": 41,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.MassaB.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "MassaB Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.V1.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Kgf/cm²"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 49
+      },
+      "id": 42,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.V1.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "V1 Pressao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Dosado.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 49
+      },
+      "id": 43,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Dosado.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Dosado Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Xarope.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 53
+      },
+      "id": 44,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Xarope.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Xarope Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Clarificado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 53
+      },
+      "id": 45,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Clarificado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Clarificado Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BrixXarope.Valor"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Brix"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 53
+      },
+      "id": 46,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BrixXarope.Valor\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Brix Xarope",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Decantador.Temperatura"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 53
+      },
+      "id": 47,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Decantador.Temperatura\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Decantador Temp",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.MassaA.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 57
+      },
+      "id": 48,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.MassaA.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "MassaA Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Dosado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 57
+      },
+      "id": 49,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Dosado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Dosado Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Filtrado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 57
+      },
+      "id": 50,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Filtrado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Filtrado Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Xarope.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 57
+      },
+      "id": 51,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Xarope.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Xarope Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorLodo.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 61
+      },
+      "id": 52,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorLodo.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Lodo",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorLodoEND.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 61
+      },
+      "id": 53,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorLodoEND.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Lodo ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Lodo.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 61
+      },
+      "id": 54,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Lodo.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Lodo Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorMelFinal.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 61
+      },
+      "id": 55,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorMelFinal.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Mel Final",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorMelFinalEND.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 65
+      },
+      "id": 56,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorMelFinalEND.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Mel Final ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorXarope.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 65
+      },
+      "id": 57,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorXarope.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Xarope",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorXaropeANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 65
+      },
+      "id": 58,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorXaropeANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Xarope ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorFiltrado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 65
+      },
+      "id": 59,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorFiltrado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Filtrado",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorFiltradoANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 69
+      },
+      "id": 60,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorFiltradoANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Filtrado ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorClarificado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 69
+      },
+      "id": 61,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorClarificado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Clarificado",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorClarificadoANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 69
+      },
+      "id": 62,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorClarificadoANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Clarificado ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorDosado.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 69
+      },
+      "id": 63,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorDosado.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Dosado",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.TotalizadorDosadoANT.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/dia"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 73
+      },
+      "id": 64,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.TotalizadorDosadoANT.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot Dosado ANT",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.Clarificado.Nivel"
+            }
+          ],
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 73
+      },
+      "id": 65,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.Clarificado.Nivel\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Clarificado Nivel",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.AguaBruta.Pressao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: Kgf/cm²"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 73
+      },
+      "id": 66,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.AguaBruta.Pressao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Agua Bruta Pressao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.MelFinal.Vazao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: m³/h"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 73
+      },
+      "id": 67,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.MelFinal.Vazao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Mel Final Vazao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BMA01MassaA.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 77
+      },
+      "id": 68,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BMA01MassaA.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "BMA01 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BMA02MassaA.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 77
+      },
+      "id": 69,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BMA02MassaA.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "BMA02 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BMA03MassaA.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 77
+      },
+      "id": 70,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BMA03MassaA.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "BMA03 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BMA04MassaA.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 77
+      },
+      "id": 71,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BMA04MassaA.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "BMA04 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BMA06MassaA.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 81
+      },
+      "id": 72,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BMA06MassaA.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "BMA06 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.BMA05MassaA.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 81
+      },
+      "id": 73,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.BMA05MassaA.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "BMA05 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.KONT01MassaB.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 81
+      },
+      "id": 74,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.KONT01MassaB.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "KONT01 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.KONT02MassaB.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 81
+      },
+      "id": 75,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.KONT02MassaB.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "KONT02 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.KONT03MassaB.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 85
+      },
+      "id": 76,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.KONT03MassaB.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "KONT03 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.KONT04MassaB.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 85
+      },
+      "id": 77,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.KONT04MassaB.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "KONT04 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.KONT05MassaB.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 85
+      },
+      "id": 78,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.KONT05MassaB.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "KONT05 Status",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Fabrica.KONT06MassaB.Status"
+            }
+          ],
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "color": "green",
+                  "text": "INATIVO"
+                },
+                "1": {
+                  "color": "red",
+                  "text": "ATIVO"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 85
+      },
+      "id": 79,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Fabrica.KONT06MassaB.Status\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "KONT06 Status",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 89
+      },
+      "id": 80,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href='/d/sector-dashboard/sector-dashboard?var-sector=Gerador' style='text-decoration: none; color: inherit; display: block;'><div style='background-color: #2c3235; padding: 15px; border-radius: 5px; cursor: pointer;'><h3 style='margin: 0; color: #ffffff;'>GERADOR</h3><p style='margin: 0; color: #8e8e8e;'>Clique para ver o histórico do setor</p></div></a>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.3.10",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G1.Tensao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 92
+      },
+      "id": 81,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G1.Tensao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G1 Tensao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G1.Corrente"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 92
+      },
+      "id": 82,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G1.Corrente\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G1 Corrente",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G1.RPM"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: RPM"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 92
+      },
+      "id": 83,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G1.RPM\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G1 RPM",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G1.Frequencia"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "hertz"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 92
+      },
+      "id": 84,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G1.Frequencia\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G1 Frequencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G1.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 96
+      },
+      "id": 85,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G1.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G1 Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.TotalizadorG1.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 96
+      },
+      "id": 86,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.TotalizadorG1.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot G1 Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.TotalizadorG1ANT.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 96
+      },
+      "id": 87,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.TotalizadorG1ANT.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot G1 ANT Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.TotalizadorG1G2.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 96
+      },
+      "id": 88,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.TotalizadorG1G2.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot G1 G2 Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.TotalizadorG1G2ANT.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 100
+      },
+      "id": 89,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.TotalizadorG1G2ANT.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot G1 G2 ANT Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G1MAISG2.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 100
+      },
+      "id": 90,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G1MAISG2.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G1 MAIS G2",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G2.Tensao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 100
+      },
+      "id": 91,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G2.Tensao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G2 Tensao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G2.Corrente"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 100
+      },
+      "id": 92,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G2.Corrente\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G2 Corrente",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G2.RPM"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "suffix: RPM"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 104
+      },
+      "id": 93,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G2.RPM\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G2 RPM",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G2.Frequencia"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "hertz"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 104
+      },
+      "id": 94,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G2.Frequencia\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G2 Frequencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.G2.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 104
+      },
+      "id": 95,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.G2.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "G2 Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#009E73",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Gerador.TotalizadorG2.PotenciaAtiva"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 104
+      },
+      "id": 96,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Gerador.TotalizadorG2.PotenciaAtiva\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tot G2 Potencia",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {},
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 24,
+        "x": 0,
+        "y": 108
+      },
+      "id": 97,
+      "options": {
+        "code": {
+          "language": "plaintext",
+          "showLineNumbers": false,
+          "showMiniMap": false
+        },
+        "content": "<a href='/d/sector-dashboard/sector-dashboard?var-sector=Concessionaria' style='text-decoration: none; color: inherit; display: block;'><div style='background-color: #2c3235; padding: 15px; border-radius: 5px; cursor: pointer;'><h3 style='margin: 0; color: #ffffff;'>CONCESSIONARIA</h3><p style='margin: 0; color: #8e8e8e;'>Clique para ver o histórico do setor</p></div></a>",
+        "mode": "html"
+      },
+      "pluginVersion": "12.3.10",
+      "title": "",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#CC79A7",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Concessionaria.Tensao"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "volt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 0,
+        "y": 111
+      },
+      "id": 98,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Concessionaria.Tensao\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Tensao",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#E69F00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Concessionaria.Corrente"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "amp"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 6,
+        "y": 111
+      },
+      "id": 99,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Concessionaria.Corrente\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Corrente",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#56B4E9",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Concessionaria.Potencia"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatt"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 12,
+        "y": 111
+      },
+      "id": 100,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Concessionaria.Potencia\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Potencia",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "vhp_mvp"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#D55E00",
+            "mode": "fixed"
+          },
+          "links": [
+            {
+              "url": "/d/var-dashboard/var-dashboard?var-variable=Concessionaria.Frequencia"
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "hertz"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 18,
+        "y": 111
+      },
+      "id": 101,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "percentChangeColorMode": "standard",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": false,
+        "textMode": "value",
+        "wideLayout": true
+      },
+      "pluginVersion": "12.3.10",
+      "targets": [
+        {
+          "format": "table",
+          "rawSql": "SELECT \"Concessionaria.Frequencia\" AS value FROM plc_data WHERE $__timeFilter(time)",
+          "refId": "A"
+        }
+      ],
+      "title": "Frequencia",
+      "type": "stat"
+    }
+  ],
+  "preload": false,
+  "refresh": "5s",
+  "schemaVersion": 42,
+  "tags": [
+    "Oficial"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Usina VHP - Visão Geral",
+  "uid": "main-dashboard",
+  "version": 9
+}

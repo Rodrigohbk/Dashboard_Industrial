@@ -1,0 +1,11 @@
+{
+  "node_id": "node0",
+  "db_id": 1,
+  "table_id": 20,
+  "files": [],
+  "latest_snapshot_sequence_number": 111,
+  "parquet_size_bytes": 0,
+  "row_count": 0,
+  "min_time": 9223372036854775807,
+  "max_time": 0
+}

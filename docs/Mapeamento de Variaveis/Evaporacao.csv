@@ -1,0 +1,15 @@
+﻿Setor Responsável ;IP CLP Origem Informacao;Endereço no Supervisório ;Endereço CLP;Nomenclatura UNS para Aplicação WEB
+Fabrica;192.168.6.228:502:255;FP:52001;RM 0 ;Fabrica.PH.Medicao
+Caldeira;192.168.6.228:502:255;FP:52023;RM 11;Caldeira.VaporEscape.Pressao
+Fabrica;192.168.6.228:502:255;FP:52025;RM 12;Fabrica.V1.Pressao
+Fabrica;192.168.6.228:502:255;FP:52027;RM 13;Fabrica.Dosado.Nivel
+Fabrica;192.168.6.228:502:255;FP:52031;RM 15;Fabrica.Clarificado.Vazao
+Fabrica;192.168.6.228:502:255;FP:52033;RM 16;Fabrica.BrixXarope.Valor
+Fabrica;192.168.6.228:502:255;FP:52005;RM 2;Fabrica.Decantador.Temperatura
+Caldeira;192.168.6.228:502:255;FP:52071;RM 35;Caldeira.CondensadoEscapeV1.Vazao
+Fabrica;192.168.6.228:502:255;FP:52077;RM 38;Fabrica.Dosado.Vazao
+Fabrica;192.168.6.228:502:255;FP:52079;RM 39;Fabrica.Filtrado.Vazao
+Fabrica;192.168.6.228:502:255;FP:52081;RM 40;Fabrica.Xarope.Vazao
+Fabrica;192.168.6.228:502:255;FP:52085;RM 42;Fabrica.Lodo.Vazao
+Fabrica;192.168.6.228:502:255;FP:52015;RM 7;Fabrica.Clarificado.Nivel
+Fabrica;192.168.6.228:502:255;FP:52017;RM 8;Fabrica.AguaBruta.Pressao

@@ -1,0 +1,2514 @@
+[
+    {
+        "id": "tab_moenda_224",
+        "type": "tab",
+        "label": "Moenda 224 (8 Vars)",
+        "disabled": true,
+        "info": "Coleta de 8 variáveis da Moenda.\nIP: 192.168.6.224:502:255\nBanco: vhp_mvp"
+    },
+    {
+        "id": "c91848f1033f423c",
+        "type": "tab",
+        "label": "Evaporacao 228 (14 Vars)",
+        "disabled": true,
+        "info": "Coleta de 14 variáveis do CLP 228 (Fábrica e Caldeira).\nIP: 192.168.6.228:502:255\nBanco: vhp_mvp\nTag: 228"
+    },
+    {
+        "id": "19dee41e16af5081",
+        "type": "tab",
+        "label": "Fábrica 231 (46 Vars)",
+        "disabled": true,
+        "info": "Coleta definitiva da Fábrica (46 variáveis).\nCiclo: 10s\nArquitetura: Modbus-Flex-Sequencer"
+    },
+    {
+        "id": "69fc3a919e57f6b2",
+        "type": "tab",
+        "label": "Gerador 65 (13 Vars)",
+        "disabled": true,
+        "info": "Coleta de 13 variáveis do CLP 65 (Gerador e Concessionária).\nIP: 192.168.6.65:502:255\nCiclo: 5s\nArquitetura: Modbus-Flex-Sequencer"
+    },
+    {
+        "id": "1c0c0bc83bf38023",
+        "type": "tab",
+        "label": "Caldeira 220 (15 Vars)",
+        "disabled": true,
+        "info": "Coleta de 15 variáveis do CLP 220 (Caldeira).\nIP: 192.168.6.220:502:255\nCiclo: 5s\nArquitetura: Modbus-Flex-Sequencer"
+    },
+    {
+        "id": "tab_mestre_231",
+        "type": "tab",
+        "label": "Mestre Centralizador 231",
+        "disabled": true,
+        "info": "Coleta centralizada via CLP Mestre (Fábrica 231).\n94 variáveis lidas sequencialmente a cada 10s."
+    },
+    {
+        "id": "12d84de413151773",
+        "type": "tab",
+        "label": "Mestre Centralizador 231",
+        "disabled": false,
+        "info": "Coleta centralizada via CLP Mestre (Fábrica 231).\n94 variáveis lidas sequencialmente a cada 10s."
+    },
+    {
+        "id": "cfg_modbus_224",
+        "type": "modbus-client",
+        "name": "CLP Moenda 224",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.6.224",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 255,
+        "commandDelay": 100,
+        "clientTimeout": 5000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 10000,
+        "parallelUnitIdsAllowed": false
+    },
+    {
+        "id": "cfg_influx3_mvp",
+        "type": "influxdb3-config",
+        "name": "InfluxDB 3 Core (vhp_mvp)",
+        "host": "http://influxdb3-core:8181",
+        "database": "vhp_mvp",
+        "tlsRejectUnauthorized": false,
+        "caCertPath": ""
+    },
+    {
+        "id": "29f61c91c352ce16",
+        "type": "modbus-client",
+        "name": "CLP Evaporacao 228",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.6.228",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": "255",
+        "commandDelay": "100",
+        "clientTimeout": "5000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "10000",
+        "parallelUnitIdsAllowed": false
+    },
+    {
+        "id": "cfg_influx3_mvp_poc",
+        "type": "influxdb3-config",
+        "name": "InfluxDB vhp_mvp",
+        "host": "http://influxdb3-core:8181",
+        "database": "vhp_mvp"
+    },
+    {
+        "id": "c4d193a5485a6cae",
+        "type": "modbus-client",
+        "name": "CLP Fabrica 231",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.6.231",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": "255",
+        "commandDelay": "200",
+        "clientTimeout": "5000",
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": "10000",
+        "parallelUnitIdsAllowed": false
+    },
+    {
+        "id": "8c63e2e5d26d0245",
+        "type": "modbus-client",
+        "name": "CLP Gerador 65",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.6.65",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 255,
+        "commandDelay": 150,
+        "clientTimeout": 5000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 10000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "0716c205dd206ed2",
+        "type": "modbus-client",
+        "name": "CLP Caldeira 220",
+        "clienttype": "tcp",
+        "bufferCommands": true,
+        "stateLogEnabled": true,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.6.220",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 255,
+        "commandDelay": 150,
+        "clientTimeout": 10000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 15000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "cfg_modbus_mestre",
+        "type": "modbus-client",
+        "name": "CLP Mestre 231",
+        "clienttype": "tcp",
+        "bufferCommands": false,
+        "stateLogEnabled": false,
+        "queueLogEnabled": false,
+        "failureLogEnabled": true,
+        "tcpHost": "192.168.6.231",
+        "tcpPort": "502",
+        "tcpType": "DEFAULT",
+        "serialPort": "",
+        "serialType": "RTU-BUFFERD",
+        "serialBaudrate": "9600",
+        "serialDatabits": "8",
+        "serialStopbits": "1",
+        "serialParity": "none",
+        "serialConnectionDelay": "100",
+        "serialAsciiResponseStartDelimiter": "",
+        "unit_id": 255,
+        "commandDelay": "75",
+        "clientTimeout": 5000,
+        "reconnectOnTimeout": true,
+        "reconnectTimeout": 10000,
+        "parallelUnitIdsAllowed": false,
+        "showErrors": false,
+        "showWarnings": true,
+        "showLogs": true
+    },
+    {
+        "id": "cfg_influx3_mvp_mestre",
+        "type": "influxdb3-config",
+        "name": "InfluxDB vhp_mvp",
+        "host": "http://influxdb3-core:8181",
+        "database": "vhp_mvp"
+    },
+    {
+        "id": "inj_01",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler PrimeiroAcionamento (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 80,
+        "wires": [
+            [
+                "req_01"
+            ]
+        ]
+    },
+    {
+        "id": "req_01",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:52023",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52022, quantity: 2 };\nmsg.topic = 'Moenda.PrimeiroAcionamento.RPM';\nreturn msg;",
+        "outputs": 1,
+        "x": 400,
+        "y": 80,
+        "wires": [
+            [
+                "get_01"
+            ]
+        ]
+    },
+    {
+        "id": "get_01",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get PrimeiroAcionamento",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "server": "cfg_modbus_224",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "x": 630,
+        "y": 80,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_02",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler Rotacao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.5,
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 140,
+        "wires": [
+            [
+                "req_02"
+            ]
+        ]
+    },
+    {
+        "id": "req_02",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:52223",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52222, quantity: 2 };\nmsg.topic = 'Moenda.Rotacao.VPM';\nreturn msg;",
+        "outputs": 1,
+        "x": 370,
+        "y": 140,
+        "wires": [
+            [
+                "get_02"
+            ]
+        ]
+    },
+    {
+        "id": "get_02",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get Rotacao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "cfg_modbus_224",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 580,
+        "y": 140,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_03",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler Desfibrador (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.9,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 200,
+        "wires": [
+            [
+                "req_03"
+            ]
+        ]
+    },
+    {
+        "id": "req_03",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:52005",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52004, quantity: 2 };\nmsg.topic = 'Moenda.Desfibrador.RPM';\nreturn msg;",
+        "outputs": 1,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "get_03"
+            ]
+        ]
+    },
+    {
+        "id": "get_03",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get Desfibrador",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "cfg_modbus_224",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 590,
+        "y": 200,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_04",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler AguaEmbebicao Temp (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1.3,
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "req_04"
+            ]
+        ]
+    },
+    {
+        "id": "req_04",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:52007",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52006, quantity: 2 };\nmsg.topic = 'Moenda.AguaEmbebicao.Temperatura';\nreturn msg;",
+        "outputs": 1,
+        "x": 410,
+        "y": 260,
+        "wires": [
+            [
+                "get_04"
+            ]
+        ]
+    },
+    {
+        "id": "get_04",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get AguaEmbebicao Temp",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "server": "cfg_modbus_224",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "x": 630,
+        "y": 260,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_05",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler TanqueEmbebicao Nivel (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1.7,
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 320,
+        "wires": [
+            [
+                "req_05"
+            ]
+        ]
+    },
+    {
+        "id": "req_05",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:52009",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52008, quantity: 2 };\nmsg.topic = 'Moenda.TanqueEmbebicao.Nivel';\nreturn msg;",
+        "outputs": 1,
+        "x": 420,
+        "y": 320,
+        "wires": [
+            [
+                "get_05"
+            ]
+        ]
+    },
+    {
+        "id": "get_05",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get TanqueEmbebicao Nivel",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "cfg_modbus_224",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 640,
+        "y": 320,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_06",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler Terno01 Nivel (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 2.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "req_06"
+            ]
+        ]
+    },
+    {
+        "id": "req_06",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:53081",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 53080, quantity: 2 };\nmsg.topic = 'Moenda.Terno01.Nivel';\nreturn msg;",
+        "outputs": 1,
+        "x": 390,
+        "y": 380,
+        "wires": [
+            [
+                "get_06"
+            ]
+        ]
+    },
+    {
+        "id": "get_06",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get Terno01 Nivel",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "cfg_modbus_224",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 600,
+        "y": 380,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_07",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler AguaEmbebicao Vazao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 2.5,
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 440,
+        "wires": [
+            [
+                "req_07"
+            ]
+        ]
+    },
+    {
+        "id": "req_07",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req FP:52013",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52012, quantity: 2 };\nmsg.topic = 'Moenda.AguaEmbebicao.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "get_07"
+            ]
+        ]
+    },
+    {
+        "id": "get_07",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get AguaEmbebicao Vazao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "cfg_modbus_224",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 630,
+        "y": 440,
+        "wires": [
+            [
+                "fn_decode_f32"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "inj_08",
+        "type": "inject",
+        "z": "tab_moenda_224",
+        "name": "Ler EmOperacao Status (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 2.9,
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 500,
+        "wires": [
+            [
+                "req_08"
+            ]
+        ]
+    },
+    {
+        "id": "req_08",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "req 4X:8191.1",
+        "func": "// Lendo 1 registrador a partir do endereço 8190 (4X:8191 - 1)\nmsg.payload = { value: 'read', fc: 3, unitid: 255, address: 8190, quantity: 1 };\nmsg.topic = 'Moenda.EmOperacao.Status';\nreturn msg;",
+        "outputs": 1,
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "get_08"
+            ]
+        ]
+    },
+    {
+        "id": "get_08",
+        "type": "modbus-flex-getter",
+        "z": "tab_moenda_224",
+        "name": "Get EmOperacao Status",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "cfg_modbus_224",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 620,
+        "y": 500,
+        "wires": [
+            [
+                "fn_decode_bit"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fn_decode_f32",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "Decodifica Float32 (CDAB)",
+        "func": "if (!Array.isArray(msg.payload) || msg.payload.length < 2) {\n    node.warn('Float payload inesperado: ' + msg.topic);\n    return null;\n}\nconst reg_low  = msg.payload[0];\nconst reg_high = msg.payload[1];\nconst buf = Buffer.alloc(4);\nbuf.writeUInt16BE(reg_high & 0xFFFF, 0);\nbuf.writeUInt16BE(reg_low  & 0xFFFF, 2);\nconst val = buf.readFloatBE(0);\n\nif (!Number.isFinite(val)) return null;\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: 'Moenda' };\nmsg.payload = {\n    fields: { [msg.topic]: val },\n    timestamp: Date.now()\n};\nreturn msg;",
+        "outputs": 1,
+        "x": 880,
+        "y": 290,
+        "wires": [
+            [
+                "influx_out",
+                "dbg_ok"
+            ]
+        ]
+    },
+    {
+        "id": "fn_decode_bit",
+        "type": "function",
+        "z": "tab_moenda_224",
+        "name": "Decodifica Bit",
+        "func": "if (!Array.isArray(msg.payload) || msg.payload.length < 1) {\n    node.warn('Bit payload inesperado: ' + msg.topic);\n    return null;\n}\nconst word = msg.payload[0];\n// Extrai o bit 1 (segundo bit)\nconst val = (word >> 1) & 1;\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: 'Moenda' };\nmsg.payload = {\n    fields: { [msg.topic]: val },\n    timestamp: Date.now()\n};\nreturn msg;",
+        "outputs": 1,
+        "x": 840,
+        "y": 500,
+        "wires": [
+            [
+                "influx_out",
+                "dbg_ok"
+            ]
+        ]
+    },
+    {
+        "id": "influx_out",
+        "type": "influxdb3-write",
+        "z": "tab_moenda_224",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB 3 Core (vhp_mvp)",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1130,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dbg_ok",
+        "type": "debug",
+        "z": "tab_moenda_224",
+        "name": "Dados Formatados",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1130,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "catch_err",
+        "type": "catch",
+        "z": "tab_moenda_224",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 580,
+        "wires": [
+            [
+                "dbg_err"
+            ]
+        ]
+    },
+    {
+        "id": "dbg_err",
+        "type": "debug",
+        "z": "tab_moenda_224",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 580,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "6c448cabb6aa8918",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler PH (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "ba63c9d42785ddf2"
+            ]
+        ]
+    },
+    {
+        "id": "ba63c9d42785ddf2",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52001",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52000, quantity: 2 };\nmsg.topic = 'Fabrica.PH.Medicao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 340,
+        "y": 80,
+        "wires": [
+            [
+                "a997a0a318dbcd88"
+            ]
+        ]
+    },
+    {
+        "id": "a997a0a318dbcd88",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get PH",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "server": "29f61c91c352ce16",
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "enableDeformedMessages": false,
+        "startDelayTime": "",
+        "x": 550,
+        "y": 80,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "277765ff45d98454",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler VaporEscape (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.4,
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 130,
+        "wires": [
+            [
+                "16f35dd1602ccf30"
+            ]
+        ]
+    },
+    {
+        "id": "16f35dd1602ccf30",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52023",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52022, quantity: 2 };\nmsg.topic = 'Caldeira.VaporEscape.Pressao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 130,
+        "wires": [
+            [
+                "9d4ec2154cd9dd0d"
+            ]
+        ]
+    },
+    {
+        "id": "9d4ec2154cd9dd0d",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get VaporEscape",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 570,
+        "y": 130,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "cd470e956c443087",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler V1 Pressao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.7,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "948398fb6e83fdf7"
+            ]
+        ]
+    },
+    {
+        "id": "948398fb6e83fdf7",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52025",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52024, quantity: 2 };\nmsg.topic = 'Fabrica.V1.Pressao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "fce9a13b8d28c1fd"
+            ]
+        ]
+    },
+    {
+        "id": "fce9a13b8d28c1fd",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get V1 Pressao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 570,
+        "y": 180,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "01b8144c4bf3ad84",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Dosado Nivel (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 230,
+        "wires": [
+            [
+                "e1e66059e24e5846"
+            ]
+        ]
+    },
+    {
+        "id": "e1e66059e24e5846",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52027",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52026, quantity: 2 };\nmsg.topic = 'Fabrica.Dosado.Nivel';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 230,
+        "wires": [
+            [
+                "758cb4941e03dafc"
+            ]
+        ]
+    },
+    {
+        "id": "758cb4941e03dafc",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Dosado Nivel",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 580,
+        "y": 230,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "45eec2990d4b0297",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Clarificado Vazao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1.3,
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 280,
+        "wires": [
+            [
+                "2e6866df43ac0b34"
+            ]
+        ]
+    },
+    {
+        "id": "2e6866df43ac0b34",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52031",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52030, quantity: 2 };\nmsg.topic = 'Fabrica.Clarificado.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 280,
+        "wires": [
+            [
+                "b7edee6719085434"
+            ]
+        ]
+    },
+    {
+        "id": "b7edee6719085434",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Clarificado Vazao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 590,
+        "y": 280,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e2164c75b68091d7",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler BrixXarope (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1.6,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 330,
+        "wires": [
+            [
+                "4a72b212e839d437"
+            ]
+        ]
+    },
+    {
+        "id": "4a72b212e839d437",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52033",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52032, quantity: 2 };\nmsg.topic = 'Fabrica.BrixXarope.Valor';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 330,
+        "wires": [
+            [
+                "ed0ebf466210529c"
+            ]
+        ]
+    },
+    {
+        "id": "ed0ebf466210529c",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get BrixXarope",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 570,
+        "y": 330,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b95260a64667e23b",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Decantador Temp (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 1.9,
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 380,
+        "wires": [
+            [
+                "065ce30b7661c051"
+            ]
+        ]
+    },
+    {
+        "id": "065ce30b7661c051",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52005",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52004, quantity: 2 };\nmsg.topic = 'Fabrica.Decantador.Temperatura';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 380,
+        "wires": [
+            [
+                "e4b7bf85b24e322c"
+            ]
+        ]
+    },
+    {
+        "id": "e4b7bf85b24e322c",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Decantador Temp",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 590,
+        "y": 380,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "5cd19898d47aa43b",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Condensado (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 2.2,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 430,
+        "wires": [
+            [
+                "c0972017749bff2f"
+            ]
+        ]
+    },
+    {
+        "id": "c0972017749bff2f",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52071",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52070, quantity: 2 };\nmsg.topic = 'Caldeira.CondensadoEscapeV1.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 430,
+        "wires": [
+            [
+                "59e6bdf50f9b5957"
+            ]
+        ]
+    },
+    {
+        "id": "59e6bdf50f9b5957",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Condensado",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 570,
+        "y": 430,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "b61dab7c964a322e",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Dosado Vazao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 2.5,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "7cd2740c31a06033"
+            ]
+        ]
+    },
+    {
+        "id": "7cd2740c31a06033",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52077",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52076, quantity: 2 };\nmsg.topic = 'Fabrica.Dosado.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 480,
+        "wires": [
+            [
+                "5068d0beafc41571"
+            ]
+        ]
+    },
+    {
+        "id": "5068d0beafc41571",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Dosado Vazao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 570,
+        "y": 480,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "38a85c709a4c356d",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Filtrado Vazao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 2.8,
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 530,
+        "wires": [
+            [
+                "a80f3afd6951bfc1"
+            ]
+        ]
+    },
+    {
+        "id": "a80f3afd6951bfc1",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52079",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52078, quantity: 2 };\nmsg.topic = 'Fabrica.Filtrado.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 530,
+        "wires": [
+            [
+                "39b0c32a6497754d"
+            ]
+        ]
+    },
+    {
+        "id": "39b0c32a6497754d",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Filtrado Vazao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 580,
+        "y": 530,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "80ea631bc01448c9",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Xarope Vazao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 3.1,
+        "payload": "",
+        "payloadType": "date",
+        "x": 160,
+        "y": 580,
+        "wires": [
+            [
+                "ff9f71d4adce99e3"
+            ]
+        ]
+    },
+    {
+        "id": "ff9f71d4adce99e3",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52081",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52080, quantity: 2 };\nmsg.topic = 'Fabrica.Xarope.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 360,
+        "y": 580,
+        "wires": [
+            [
+                "4d3763830fd4f03b"
+            ]
+        ]
+    },
+    {
+        "id": "4d3763830fd4f03b",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Xarope Vazao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 570,
+        "y": 580,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "c19dd403c57dbb87",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Lodo Vazao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 3.4,
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 630,
+        "wires": [
+            [
+                "f67fe3cfe4085ec0"
+            ]
+        ]
+    },
+    {
+        "id": "f67fe3cfe4085ec0",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52085",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52084, quantity: 2 };\nmsg.topic = 'Fabrica.Lodo.Vazao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 350,
+        "y": 630,
+        "wires": [
+            [
+                "ca60eaff580dfe45"
+            ]
+        ]
+    },
+    {
+        "id": "ca60eaff580dfe45",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Lodo Vazao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 560,
+        "y": 630,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "e7da6a7f23bac820",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler Clarificado Nivel (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 3.7,
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 680,
+        "wires": [
+            [
+                "89eba5b1c3f08faa"
+            ]
+        ]
+    },
+    {
+        "id": "89eba5b1c3f08faa",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52015",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52014, quantity: 2 };\nmsg.topic = 'Fabrica.Clarificado.Nivel';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 370,
+        "y": 680,
+        "wires": [
+            [
+                "12285c307090c78d"
+            ]
+        ]
+    },
+    {
+        "id": "12285c307090c78d",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get Clarificado Nivel",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 580,
+        "y": 680,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "602c81109be4980a",
+        "type": "inject",
+        "z": "c91848f1033f423c",
+        "name": "Ler AguaBruta Pressao (5s)",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 4,
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 730,
+        "wires": [
+            [
+                "acd10c7280d92b75"
+            ]
+        ]
+    },
+    {
+        "id": "acd10c7280d92b75",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "req FP:52017",
+        "func": "msg.payload = { value: 'read', fc: 3, unitid: 255, address: 52016, quantity: 2 };\nmsg.topic = 'Fabrica.AguaBruta.Pressao';\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 380,
+        "y": 730,
+        "wires": [
+            [
+                "3b6b9b2f9e53051b"
+            ]
+        ]
+    },
+    {
+        "id": "3b6b9b2f9e53051b",
+        "type": "modbus-flex-getter",
+        "z": "c91848f1033f423c",
+        "name": "Get AguaBruta Pressao",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "server": "29f61c91c352ce16",
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 590,
+        "y": 730,
+        "wires": [
+            [
+                "aad99a647eca10f5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "aad99a647eca10f5",
+        "type": "function",
+        "z": "c91848f1033f423c",
+        "name": "Decodifica Float32 (CDAB)",
+        "func": "if (!Array.isArray(msg.payload) || msg.payload.length < 2) {\n    node.warn('Float payload inesperado: ' + msg.topic);\n    return null;\n}\nconst reg_low  = msg.payload[0];\nconst reg_high = msg.payload[1];\nconst buf = Buffer.alloc(4);\nbuf.writeUInt16BE(reg_high & 0xFFFF, 0);\nbuf.writeUInt16BE(reg_low  & 0xFFFF, 2);\nconst val = buf.readFloatBE(0);\n\nif (!Number.isFinite(val)) return null;\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: '228' };\nmsg.payload = {\n    fields: { [msg.topic]: val },\n    timestamp: Date.now()\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 860,
+        "y": 400,
+        "wires": [
+            [
+                "989b6110a7a095b6",
+                "a4447884f7d27b79"
+            ]
+        ]
+    },
+    {
+        "id": "989b6110a7a095b6",
+        "type": "influxdb3-write",
+        "z": "c91848f1033f423c",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB 3 Core (vhp_mvp)",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1220,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a4447884f7d27b79",
+        "type": "debug",
+        "z": "c91848f1033f423c",
+        "name": "Dados Formatados",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1190,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "6d5af4256d22ab05",
+        "type": "catch",
+        "z": "c91848f1033f423c",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 810,
+        "wires": [
+            [
+                "a8cefb2e6f2bd9e3"
+            ]
+        ]
+    },
+    {
+        "id": "a8cefb2e6f2bd9e3",
+        "type": "debug",
+        "z": "c91848f1033f423c",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 580,
+        "y": 810,
+        "wires": []
+    },
+    {
+        "id": "4754f7e56e7c3420",
+        "type": "inject",
+        "z": "19dee41e16af5081",
+        "name": "Poll 15s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "03e68ce01740a6b0"
+            ]
+        ]
+    },
+    {
+        "id": "03e68ce01740a6b0",
+        "type": "function",
+        "z": "19dee41e16af5081",
+        "name": "Gerar Sequências (46)",
+        "func": "const vars = [\n    // --- Floats (FP) ---\n    { name: 'Caldeira.TotalizadorAguaEntrada.Vazao', addr: 53090, qty: 2, type: 'f32' },\n    { name: 'Caldeira.RedutoraVapor.Valvula', addr: 53092, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorVapor.Vazao', addr: 53108, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorVaporANT.Vazao', addr: 53110, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaBruta.Vazao', addr: 53084, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaBrutaANT.Vazao', addr: 53086, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaAbrandada.Vazao', addr: 53102, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaAbrandadaANT.Vazao', addr: 53104, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorCondensado.Vazao', addr: 53096, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorCondensadoANT.Vazao', addr: 53098, qty: 2, type: 'f32' },\n    { name: 'Moenda.TotalizadorAguaEmbebicao.Vazao', addr: 53078, qty: 2, type: 'f32' },\n    { name: 'Moenda.TotalizadorAguaEmbebicaoANT.Vazao', addr: 53080, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorDosado.Vazao', addr: 53072, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorDosadoANT.Vazao', addr: 53074, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorClarificado.Vazao', addr: 53066, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorClarificadoANT.Vazao', addr: 53068, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorFiltrado.Vazao', addr: 53060, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorFiltradoANT.Vazao', addr: 53062, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorXarope.Vazao', addr: 53054, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorXaropeANT.Vazao', addr: 53056, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MelFinal.Vazao', addr: 52016, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorMelFinal.Vazao', addr: 53048, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorMelFinalEND.Vazao', addr: 53050, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorLodo.Vazao', addr: 52824, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorLodoEND.Vazao', addr: 52826, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MassaA.Nivel', addr: 52006, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MassaB.Nivel', addr: 52002, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Xarope.Nivel', addr: 52026, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1.PotenciaAtiva', addr: 53042, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1ANT.PotenciaAtiva', addr: 53044, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1MAISG2.PotenciaAtiva', addr: 53154, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1G2.PotenciaAtiva', addr: 53148, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1G2ANT.PotenciaAtiva', addr: 53150, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG2.PotenciaAtiva', addr: 53142, qty: 2, type: 'f32' },\n\n    // --- Bits (4X) ---\n    { name: 'Fabrica.BMA01MassaA.Status', addr: 11000, qty: 1, type: 'bit', bit: 14 },\n    { name: 'Fabrica.BMA02MassaA.Status', addr: 11000, qty: 1, type: 'bit', bit: 15 },\n    { name: 'Fabrica.BMA03MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 0 },\n    { name: 'Fabrica.BMA04MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 1 },\n    { name: 'Fabrica.BMA05MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 2 },\n    { name: 'Fabrica.BMA06MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 13 },\n    { name: 'Fabrica.KONT01MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 11 },\n    { name: 'Fabrica.KONT02MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 12 },\n    { name: 'Fabrica.KONT03MassaB.Status', addr: 11001, qty: 1, type: 'bit', bit: 15 },\n    { name: 'Fabrica.KONT04MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 5 },\n    { name: 'Fabrica.KONT05MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 6 },\n    { name: 'Fabrica.KONT06MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 8 }\n];\n\n// Salva os metadados no contexto do fluxo para a decodificação\nflow.set('vars_meta_231', vars);\n\nmsg.sequences = [];\nfor (let v of vars) {\n    msg.sequences.push({\n        name: v.name,\n        unitid: 255,\n        fc: 3,\n        address: v.addr,\n        quantity: v.qty\n    });\n}\n\nmsg.payload = Date.now();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "6f71301e31b49292"
+            ]
+        ]
+    },
+    {
+        "id": "6f71301e31b49292",
+        "type": "modbus-flex-sequencer",
+        "z": "19dee41e16af5081",
+        "name": "Sequencer Fábrica",
+        "sequences": [
+            {
+                "name": null,
+                "unitid": null,
+                "fc": "FC1",
+                "address": null,
+                "quantity": null
+            }
+        ],
+        "server": "c4d193a5485a6cae",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "38a45dfe0a338314"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "38a45dfe0a338314",
+        "type": "function",
+        "z": "19dee41e16af5081",
+        "name": "Decodifica e Formata",
+        "func": "if (!msg.modbusRequest) {\n    node.warn('Requisição não encontrada na mensagem.');\n    return null;\n}\n\nconst varName = msg.modbusRequest.name;\nconst meta = flow.get('vars_meta_231') || [];\nconst varInfo = meta.find(v => v.name === varName);\n\nif (!varInfo) {\n    node.warn('Configuração não encontrada para ' + varName);\n    return null;\n}\n\nconst varType = varInfo.type;\nconst bitPos = varInfo.bit || 0;\n\nif (!Array.isArray(msg.payload) || msg.payload.length === 0) {\n    node.warn('Payload Modbus inválido para ' + varName);\n    return null;\n}\n\nlet val = null;\n\nif (varType === 'f32') {\n    if (msg.payload.length < 2) return null;\n    const reg_low  = msg.payload[0];\n    const reg_high = msg.payload[1];\n    const buf = Buffer.alloc(4);\n    buf.writeUInt16BE(reg_high & 0xFFFF, 0);\n    buf.writeUInt16BE(reg_low  & 0xFFFF, 2);\n    val = buf.readFloatBE(0);\n} else if (varType === 'bit') {\n    const word = msg.payload[0];\n    val = (word >> bitPos) & 1;\n}\n\nif (val === null || !Number.isFinite(val)) {\n    node.warn('Valor inválido para ' + varName + '. Registradores brutos: [' + msg.payload[0] + ', ' + msg.payload[1] + ']');\n    return null;\n}\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: '231' };\nmsg.payload = {\n    fields: { [varName]: val },\n    timestamp: Date.now()\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "09e76d20add8eb2b",
+                "76d9949df754b946"
+            ]
+        ]
+    },
+    {
+        "id": "09e76d20add8eb2b",
+        "type": "influxdb3-write",
+        "z": "19dee41e16af5081",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB vhp_mvp",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1080,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76d9949df754b946",
+        "type": "debug",
+        "z": "19dee41e16af5081",
+        "name": "Dados Formatados",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1090,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "0b1d6a4b653c66fe",
+        "type": "catch",
+        "z": "19dee41e16af5081",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "50ed9fa2eeece832"
+            ]
+        ]
+    },
+    {
+        "id": "50ed9fa2eeece832",
+        "type": "debug",
+        "z": "19dee41e16af5081",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "25b8e8a850913b21",
+        "type": "inject",
+        "z": "69fc3a919e57f6b2",
+        "name": "Poll 5s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "b27d87638b11f704"
+            ]
+        ]
+    },
+    {
+        "id": "b27d87638b11f704",
+        "type": "function",
+        "z": "69fc3a919e57f6b2",
+        "name": "Gerar Sequências (13)",
+        "func": "const vars = [\n    // Gerador G1\n    { name: 'Gerador.G1.Tensao', addr: 54066, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Corrente', addr: 54072, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.RPM', addr: 52000, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Frequencia', addr: 54112, qty: 2, type: 'f32' },\n\n    // Gerador G2\n    { name: 'Gerador.G2.Tensao', addr: 54224, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Corrente', addr: 54234, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.RPM', addr: 52040, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Frequencia', addr: 54212, qty: 2, type: 'f32' },\n    \n    // DM (Double Word - Int32)\n    { name: 'Gerador.G2.PotenciaAtiva', addr: 32140, qty: 2, type: 'int32' },\n\n    // Concessionária\n    { name: 'Concessionaria.Tensao', addr: 54006, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Corrente', addr: 54012, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Potencia', addr: 54020, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Frequencia', addr: 54052, qty: 2, type: 'f32' }\n];\n\nflow.set('vars_meta_65', vars);\n\nmsg.sequences = [];\nfor (let v of vars) {\n    msg.sequences.push({\n        name: v.name,\n        unitid: 255,\n        fc: 3,\n        address: v.addr,\n        quantity: v.qty\n    });\n}\n\nmsg.payload = Date.now();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "623164376d767dff"
+            ]
+        ]
+    },
+    {
+        "id": "623164376d767dff",
+        "type": "modbus-flex-sequencer",
+        "z": "69fc3a919e57f6b2",
+        "name": "Sequencer Gerador",
+        "sequences": [
+            {
+                "name": "",
+                "unitid": "",
+                "fc": "FC1",
+                "address": "",
+                "quantity": ""
+            }
+        ],
+        "server": "8c63e2e5d26d0245",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "285c8eb3dfc7c1d4"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "285c8eb3dfc7c1d4",
+        "type": "function",
+        "z": "69fc3a919e57f6b2",
+        "name": "Decodifica e Formata",
+        "func": "if (!msg.modbusRequest) {\n    node.warn('Requisição não encontrada na mensagem.');\n    return null;\n}\n\nconst varName = msg.modbusRequest.name;\nconst meta = flow.get('vars_meta_65') || [];\nconst varInfo = meta.find(v => v.name === varName);\n\nif (!varInfo) {\n    node.warn('Configuração não encontrada para ' + varName);\n    return null;\n}\n\nconst varType = varInfo.type;\n\nif (!Array.isArray(msg.payload) || msg.payload.length === 0) {\n    node.warn('Payload Modbus inválido para ' + varName);\n    return null;\n}\n\nlet val = null;\n\nif (varType === 'f32') {\n    if (msg.payload.length < 2) return null;\n    const reg_low  = msg.payload[0];\n    const reg_high = msg.payload[1];\n    const buf = Buffer.alloc(4);\n    buf.writeUInt16BE(reg_high & 0xFFFF, 0);\n    buf.writeUInt16BE(reg_low  & 0xFFFF, 2);\n    val = buf.readFloatBE(0);\n} else if (varType === 'int32') {\n    if (msg.payload.length < 2) return null;\n    const reg_low  = msg.payload[0];\n    const reg_high = msg.payload[1];\n    const buf = Buffer.alloc(4);\n    buf.writeUInt16BE(reg_high & 0xFFFF, 0);\n    buf.writeUInt16BE(reg_low  & 0xFFFF, 2);\n    val = buf.readInt32BE(0);\n}\n\nif (val === null || !Number.isFinite(val)) {\n    node.warn('Valor inválido para ' + varName + '. Registradores brutos: [' + msg.payload[0] + ', ' + msg.payload[1] + ']');\n    return null;\n}\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: '65' };\nmsg.payload = {\n    fields: { [varName]: val },\n    timestamp: Date.now()\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "373e83f8199536ce",
+                "980d890b5257f2fb"
+            ]
+        ]
+    },
+    {
+        "id": "373e83f8199536ce",
+        "type": "influxdb3-write",
+        "z": "69fc3a919e57f6b2",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB vhp_mvp",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1080,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "980d890b5257f2fb",
+        "type": "debug",
+        "z": "69fc3a919e57f6b2",
+        "name": "Dados Formatados",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1090,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2d7ed013c26a135f",
+        "type": "catch",
+        "z": "69fc3a919e57f6b2",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "6889af98855f9337"
+            ]
+        ]
+    },
+    {
+        "id": "6889af98855f9337",
+        "type": "debug",
+        "z": "69fc3a919e57f6b2",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a0de4e3f0297a904",
+        "type": "inject",
+        "z": "1c0c0bc83bf38023",
+        "name": "Poll 5s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "30a7e49ae7de5ee9"
+            ]
+        ]
+    },
+    {
+        "id": "30a7e49ae7de5ee9",
+        "type": "function",
+        "z": "1c0c0bc83bf38023",
+        "name": "Gerar Sequências (15)",
+        "func": "const vars = [\n    { name: 'Caldeira.Balao.Nivel', addr: 53000, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Master.Pressao', addr: 52008, qty: 2, type: 'f32' },\n    { name: 'Caldeira.VaporSuperAquecido.Temperatura', addr: 52026, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAlimentacao.Pressao', addr: 52012, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Nivel', addr: 52018, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Pressao', addr: 52020, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAbrandada.Nivel', addr: 52014, qty: 2, type: 'f32' },\n    { name: 'Caldeira.RedutoraVapor.Valvula', addr: 52478, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaClarificada.Nivel', addr: 52016, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Temperatura', addr: 52022, qty: 2, type: 'f32' },\n    { name: 'Caldeira.ControleTemperaturaDesaerador.Valvula', addr: 52570, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaEntrada.Vazao', addr: 52004, qty: 2, type: 'f32' },\n    { name: 'Caldeira.VaporSaida.Vazao', addr: 52002, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaBruta.Vazao', addr: 52038, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAbrandada.Vazao', addr: 52024, qty: 2, type: 'f32' }\n];\n\nflow.set('vars_meta_220', vars);\n\nmsg.sequences = [];\nfor (let v of vars) {\n    msg.sequences.push({\n        name: v.name,\n        unitid: 255,\n        fc: 3,\n        address: v.addr,\n        quantity: v.qty\n    });\n}\n\nmsg.payload = Date.now();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "e1919b542afc65d8"
+            ]
+        ]
+    },
+    {
+        "id": "e1919b542afc65d8",
+        "type": "modbus-flex-sequencer",
+        "z": "1c0c0bc83bf38023",
+        "name": "Sequencer Caldeira",
+        "sequences": [
+            {
+                "name": "",
+                "unitid": "",
+                "fc": "FC1",
+                "address": "",
+                "quantity": ""
+            }
+        ],
+        "server": "0716c205dd206ed2",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "24cb3f48659fa201"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "24cb3f48659fa201",
+        "type": "function",
+        "z": "1c0c0bc83bf38023",
+        "name": "Decodifica e Formata",
+        "func": "if (!msg.modbusRequest) {\n    node.warn('Requisição não encontrada na mensagem.');\n    return null;\n}\n\nconst varName = msg.modbusRequest.name;\nconst meta = flow.get('vars_meta_220') || [];\nconst varInfo = meta.find(v => v.name === varName);\n\nif (!varInfo) {\n    node.warn('Configuração não encontrada para ' + varName);\n    return null;\n}\n\nconst varType = varInfo.type;\n\nif (!Array.isArray(msg.payload) || msg.payload.length === 0) {\n    node.warn('Payload Modbus inválido para ' + varName);\n    return null;\n}\n\nlet val = null;\n\nif (varType === 'f32') {\n    if (msg.payload.length < 2) return null;\n    const reg_low  = msg.payload[0];\n    const reg_high = msg.payload[1];\n    const buf = Buffer.alloc(4);\n    buf.writeUInt16BE(reg_high & 0xFFFF, 0);\n    buf.writeUInt16BE(reg_low  & 0xFFFF, 2);\n    val = buf.readFloatBE(0);\n}\n\nif (val === null || !Number.isFinite(val)) {\n    node.warn('Valor inválido para ' + varName + '. Registradores brutos: [' + msg.payload[0] + ', ' + msg.payload[1] + ']');\n    return null;\n}\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: '220' };\nmsg.payload = {\n    fields: { [varName]: val },\n    timestamp: Date.now()\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "3f3f6b1966a44461",
+                "cb5d8d149626375a"
+            ]
+        ]
+    },
+    {
+        "id": "3f3f6b1966a44461",
+        "type": "influxdb3-write",
+        "z": "1c0c0bc83bf38023",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB vhp_mvp",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1080,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cb5d8d149626375a",
+        "type": "debug",
+        "z": "1c0c0bc83bf38023",
+        "name": "Dados Formatados",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "2e4f1f181527ae52",
+        "type": "catch",
+        "z": "1c0c0bc83bf38023",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "e374c4c5a3ebe16c"
+            ]
+        ]
+    },
+    {
+        "id": "e374c4c5a3ebe16c",
+        "type": "debug",
+        "z": "1c0c0bc83bf38023",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "inj_timer_mestre",
+        "type": "inject",
+        "z": "tab_mestre_231",
+        "name": "Poll 10s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "10",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "fn_gerar_sequencias"
+            ]
+        ]
+    },
+    {
+        "id": "fn_gerar_sequencias",
+        "type": "function",
+        "z": "tab_mestre_231",
+        "name": "Gerar Sequências (94)",
+        "func": "const vars = [\n    // --- CALDEIRA (Floats) ---\n    { name: 'Caldeira.VaporSaida.Vazao', addr: 53300, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Pressao', addr: 53302, qty: 2, type: 'f32' },\n    { name: 'Caldeira.VaporEscape.Pressao', addr: 53224, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Temperatura', addr: 53304, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAbrandada.Vazao', addr: 53306, qty: 2, type: 'f32' },\n    { name: 'Caldeira.VaporSuperAquecido.Temperatura', addr: 53308, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaBruta.Vazao', addr: 53310, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaEntrada.Vazao', addr: 53312, qty: 2, type: 'f32' },\n    { name: 'Caldeira.RedutoraVapor.Valvula', addr: 53314, qty: 2, type: 'f32' },\n    { name: 'Caldeira.ControleTemperaturaDesaerador.Valvula', addr: 53316, qty: 2, type: 'f32' },\n    { name: 'Caldeira.CondensadoEscapeV1.Vazao', addr: 53226, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Master.Pressao', addr: 53318, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Balao.Nivel', addr: 53320, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaBruta.Vazao', addr: 53084, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaBrutaANT.Vazao', addr: 53086, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaEntrada.Vazao', addr: 53090, qty: 2, type: 'f32' },\n    { name: 'Caldeira.RedutoraVapor.Valvula_546', addr: 53092, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorCondensado.Vazao', addr: 53096, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorCondensadoANT.Vazao', addr: 53098, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaAbrandada.Vazao', addr: 53102, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaAbrandadaANT.Vazao', addr: 53104, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorVapor.Vazao', addr: 53108, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorVaporANT.Vazao', addr: 53110, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAlimentacao.Pressao', addr: 53322, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAbrandada.Nivel', addr: 53324, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaClarificada.Nivel', addr: 53326, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Nivel', addr: 53328, qty: 2, type: 'f32' },\n\n    // --- FABRICA (Bits) ---\n    { name: 'Fabrica.BMA01MassaA.Status', addr: 11000, qty: 1, type: 'bit', bit: 14 },\n    { name: 'Fabrica.BMA02MassaA.Status', addr: 11000, qty: 1, type: 'bit', bit: 15 },\n    { name: 'Fabrica.BMA03MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 0 },\n    { name: 'Fabrica.BMA04MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 1 },\n    { name: 'Fabrica.BMA06MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 13 },\n    { name: 'Fabrica.BMA05MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 2 },\n    { name: 'Fabrica.KONT01MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 11 },\n    { name: 'Fabrica.KONT02MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 12 },\n    { name: 'Fabrica.KONT03MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 13 },\n    { name: 'Fabrica.KONT04MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 5 },\n    { name: 'Fabrica.KONT05MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 6 },\n    { name: 'Fabrica.KONT06MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 8 },\n\n    // --- CONCESSIONARIA (Floats) ---\n    { name: 'Concessionaria.Tensao', addr: 53260, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Corrente', addr: 53262, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Potencia', addr: 53264, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Frequencia', addr: 53266, qty: 2, type: 'f32' },\n\n    // --- FABRICA (Floats) ---\n    { name: 'Fabrica.PH.Medicao', addr: 53200, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MassaB.Nivel', addr: 52002, qty: 2, type: 'f32' },\n    { name: 'Fabrica.V1.Pressao', addr: 53202, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Dosado.Nivel', addr: 53204, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Xarope.Nivel', addr: 52026, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Clarificado.Vazao', addr: 53206, qty: 2, type: 'f32' },\n    { name: 'Fabrica.BrixXarope.Valor', addr: 53208, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Decantador.Temperatura', addr: 53210, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MassaA.Nivel', addr: 52006, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Dosado.Vazao', addr: 53212, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Filtrado.Vazao', addr: 53214, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Xarope.Vazao', addr: 53216, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorLodo.Vazao', addr: 52824, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorLodoEND.Vazao', addr: 52826, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Lodo.Vazao', addr: 53218, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorMelFinal.Vazao', addr: 53048, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorMelFinalEND.Vazao', addr: 53050, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorXarope.Vazao', addr: 53054, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorXaropeANT.Vazao', addr: 53056, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorFiltrado.Vazao', addr: 53060, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorFiltradoANT.Vazao', addr: 53062, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorClarificado.Vazao', addr: 53066, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorClarificadoANT.Vazao', addr: 53068, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorDosado.Vazao', addr: 53072, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorDosadoANT.Vazao', addr: 53074, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Clarificado.Nivel', addr: 53220, qty: 2, type: 'f32' },\n    { name: 'Fabrica.AguaBruta.Pressao', addr: 53222, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MelFinal.Vazao', addr: 52016, qty: 2, type: 'f32' },\n\n    // --- GERADOR (Floats) ---\n    { name: 'Gerador.G2.PotenciaAtiva', addr: 53286, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.RPM', addr: 53268, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Tensao', addr: 53270, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Corrente', addr: 53272, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Frequencia', addr: 53274, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Frequencia', addr: 53276, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Tensao', addr: 53278, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Corrente', addr: 53280, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.RPM', addr: 53282, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.PotenciaAtiva', addr: 53284, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1.PotenciaAtiva', addr: 53042, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1ANT.PotenciaAtiva', addr: 53044, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG2.PotenciaAtiva', addr: 53142, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1G2.PotenciaAtiva', addr: 53148, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1G2ANT.PotenciaAtiva', addr: 53150, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1MAISG2.PotenciaAtiva', addr: 53154, qty: 2, type: 'f32' },\n\n    // --- MOENDA (Floats + Bit) ---\n    { name: 'Moenda.PrimeiroAcionamento.RPM', addr: 53240, qty: 2, type: 'f32' },\n    { name: 'Moenda.Rotacao.VPM', addr: 53242, qty: 2, type: 'f32' },\n    { name: 'Moenda.Desfibrador.RPM', addr: 53244, qty: 2, type: 'f32' },\n    { name: 'Moenda.AguaEmbebicao.Temperatura', addr: 53246, qty: 2, type: 'f32' },\n    { name: 'Moenda.TanqueEmbebicao.Nivel', addr: 53248, qty: 2, type: 'f32' },\n    { name: 'Moenda.TotalizadorAguaEmbebicao.Vazao', addr: 53078, qty: 2, type: 'f32' },\n    { name: 'Moenda.TotalizadorAguaEmbebicaoANT.Vazao', addr: 53080, qty: 2, type: 'f32' },\n    { name: 'Moenda.Terno01.Nivel', addr: 53250, qty: 2, type: 'f32' },\n    { name: 'Moenda.AguaEmbebicao.Vazao', addr: 53252, qty: 2, type: 'f32' },\n    { name: 'Moenda.EmOperacao.Status', addr: 7600, qty: 1, type: 'bit', bit: 1 }\n];\n\nflow.set('vars_meta_mestre', vars);\n\nmsg.sequences = [];\nfor (let v of vars) {\n    msg.sequences.push({\n        name: v.name,\n        unitid: 255,\n        fc: 3,\n        address: v.addr,\n        quantity: v.qty\n    });\n}\n\nmsg.payload = Date.now();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "seq_flex"
+            ]
+        ]
+    },
+    {
+        "id": "seq_flex",
+        "type": "modbus-flex-sequencer",
+        "z": "tab_mestre_231",
+        "name": "Sequencer Mestre",
+        "sequences": [
+            {
+                "name": "",
+                "unitid": "",
+                "fc": "FC1",
+                "address": "",
+                "quantity": ""
+            }
+        ],
+        "server": "cfg_modbus_mestre",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "fn_decode_mestre"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "fn_decode_mestre",
+        "type": "function",
+        "z": "tab_mestre_231",
+        "name": "Decodifica e Formata",
+        "func": "if (!msg.modbusRequest) return null;\nconst varName = msg.modbusRequest.name;\nconst meta = flow.get('vars_meta_mestre') || [];\nconst varInfo = meta.find(v => v.name === varName);\n\nif (!varInfo || !Array.isArray(msg.payload) || msg.payload.length === 0) return null;\n\nconst varType = varInfo.type;\nconst bitPos = varInfo.bit || 0;\nlet val = null;\n\nif (varType === 'f32') {\n    if (msg.payload.length < 2) return null;\n    const reg_low  = msg.payload[0];\n    const reg_high = msg.payload[1];\n    const buf = Buffer.alloc(4);\n    buf.writeUInt16BE(reg_high & 0xFFFF, 0);\n    buf.writeUInt16BE(reg_low  & 0xFFFF, 2);\n    val = buf.readFloatBE(0);\n} else if (varType === 'bit') {\n    const word = msg.payload[0];\n    val = (word >> bitPos) & 1;\n}\n\nif (val === null || !Number.isFinite(val)) return null;\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: 'mestre_231' };\nmsg.payload = {\n    fields: { [varName]: val },\n    timestamp: Date.now()\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "influx_out_mestre",
+                "71d5a96ed7d9a76e"
+            ]
+        ]
+    },
+    {
+        "id": "influx_out_mestre",
+        "type": "influxdb3-write",
+        "z": "tab_mestre_231",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB vhp_mvp",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1080,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "catch_err_mestre",
+        "type": "catch",
+        "z": "tab_mestre_231",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "dbg_err_mestre"
+            ]
+        ]
+    },
+    {
+        "id": "dbg_err_mestre",
+        "type": "debug",
+        "z": "tab_mestre_231",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "71d5a96ed7d9a76e",
+        "type": "debug",
+        "z": "tab_mestre_231",
+        "name": "Dados Formatados",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1090,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "82e34ebdb378f5eb",
+        "type": "inject",
+        "z": "12d84de413151773",
+        "name": "Poll 10s",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "15",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "5a7e402abfcaa0c4"
+            ]
+        ]
+    },
+    {
+        "id": "5a7e402abfcaa0c4",
+        "type": "function",
+        "z": "12d84de413151773",
+        "name": "Gerar Sequências (94)",
+        "func": "const vars = [\n    // --- CALDEIRA (Floats) ---\n    { name: 'Caldeira.VaporSaida.Vazao', addr: 53300, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Pressao', addr: 53302, qty: 2, type: 'f32' },\n    { name: 'Caldeira.VaporEscape.Pressao', addr: 53224, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Temperatura', addr: 53304, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAbrandada.Vazao', addr: 53306, qty: 2, type: 'f32' },\n    { name: 'Caldeira.VaporSuperAquecido.Temperatura', addr: 53308, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaBruta.Vazao', addr: 53310, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaEntrada.Vazao', addr: 53312, qty: 2, type: 'f32' },\n    { name: 'Caldeira.RedutoraVapor.Valvula', addr: 53314, qty: 2, type: 'f32' },\n    { name: 'Caldeira.ControleTemperaturaDesaerador.Valvula', addr: 53316, qty: 2, type: 'f32' },\n    { name: 'Caldeira.CondensadoEscapeV1.Vazao', addr: 53226, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Master.Pressao', addr: 53318, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Balao.Nivel', addr: 53320, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaBruta.Vazao', addr: 53084, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaBrutaANT.Vazao', addr: 53086, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaEntrada.Vazao', addr: 53090, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorCondensado.Vazao', addr: 53096, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorCondensadoANT.Vazao', addr: 53098, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaAbrandada.Vazao', addr: 53102, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorAguaAbrandadaANT.Vazao', addr: 53104, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorVapor.Vazao', addr: 53108, qty: 2, type: 'f32' },\n    { name: 'Caldeira.TotalizadorVaporANT.Vazao', addr: 53110, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAlimentacao.Pressao', addr: 53322, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaAbrandada.Nivel', addr: 53324, qty: 2, type: 'f32' },\n    { name: 'Caldeira.AguaClarificada.Nivel', addr: 53326, qty: 2, type: 'f32' },\n    { name: 'Caldeira.Desaerador.Nivel', addr: 53328, qty: 2, type: 'f32' },\n\n    // --- FABRICA (Bits) ---\n    { name: 'Fabrica.BMA01MassaA.Status', addr: 11000, qty: 1, type: 'bit', bit: 14 },\n    { name: 'Fabrica.BMA02MassaA.Status', addr: 11000, qty: 1, type: 'bit', bit: 15 },\n    { name: 'Fabrica.BMA03MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 0 },\n    { name: 'Fabrica.BMA04MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 1 },\n    { name: 'Fabrica.BMA06MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 13 },\n    { name: 'Fabrica.BMA05MassaA.Status', addr: 11001, qty: 1, type: 'bit', bit: 2 },\n    { name: 'Fabrica.KONT01MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 11 },\n    { name: 'Fabrica.KONT02MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 12 },\n    { name: 'Fabrica.KONT03MassaB.Status', addr: 11000, qty: 1, type: 'bit', bit: 13 },\n    { name: 'Fabrica.KONT04MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 5 },\n    { name: 'Fabrica.KONT05MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 6 },\n    { name: 'Fabrica.KONT06MassaB.Status', addr: 11002, qty: 1, type: 'bit', bit: 8 },\n\n    // --- CONCESSIONARIA (Floats) ---\n    { name: 'Concessionaria.Tensao', addr: 53260, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Corrente', addr: 53262, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Potencia', addr: 53264, qty: 2, type: 'f32' },\n    { name: 'Concessionaria.Frequencia', addr: 53266, qty: 2, type: 'f32' },\n\n    // --- FABRICA (Floats) ---\n    { name: 'Fabrica.PH.Medicao', addr: 53200, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MassaB.Nivel', addr: 52002, qty: 2, type: 'f32' },\n    { name: 'Fabrica.V1.Pressao', addr: 53202, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Dosado.Nivel', addr: 53204, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Xarope.Nivel', addr: 52026, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Clarificado.Vazao', addr: 53206, qty: 2, type: 'f32' },\n    { name: 'Fabrica.BrixXarope.Valor', addr: 53208, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Decantador.Temperatura', addr: 53210, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MassaA.Nivel', addr: 52006, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Dosado.Vazao', addr: 53212, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Filtrado.Vazao', addr: 53214, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Xarope.Vazao', addr: 53216, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorLodo.Vazao', addr: 52824, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorLodoEND.Vazao', addr: 52826, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Lodo.Vazao', addr: 53218, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorMelFinal.Vazao', addr: 53048, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorMelFinalEND.Vazao', addr: 53050, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorXarope.Vazao', addr: 53054, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorXaropeANT.Vazao', addr: 53056, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorFiltrado.Vazao', addr: 53060, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorFiltradoANT.Vazao', addr: 53062, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorClarificado.Vazao', addr: 53066, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorClarificadoANT.Vazao', addr: 53068, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorDosado.Vazao', addr: 53072, qty: 2, type: 'f32' },\n    { name: 'Fabrica.TotalizadorDosadoANT.Vazao', addr: 53074, qty: 2, type: 'f32' },\n    { name: 'Fabrica.Clarificado.Nivel', addr: 53220, qty: 2, type: 'f32' },\n    { name: 'Fabrica.AguaBruta.Pressao', addr: 53222, qty: 2, type: 'f32' },\n    { name: 'Fabrica.MelFinal.Vazao', addr: 52016, qty: 2, type: 'f32' },\n\n    // --- GERADOR (Floats) ---\n    { name: 'Gerador.G2.PotenciaAtiva', addr: 53286, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.RPM', addr: 53268, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Tensao', addr: 53270, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Corrente', addr: 53272, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.Frequencia', addr: 53274, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Frequencia', addr: 53276, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Tensao', addr: 53278, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.Corrente', addr: 53280, qty: 2, type: 'f32' },\n    { name: 'Gerador.G2.RPM', addr: 53282, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1.PotenciaAtiva', addr: 53284, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1.PotenciaAtiva', addr: 53042, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1ANT.PotenciaAtiva', addr: 53044, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG2.PotenciaAtiva', addr: 53142, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1G2.PotenciaAtiva', addr: 53148, qty: 2, type: 'f32' },\n    { name: 'Gerador.TotalizadorG1G2ANT.PotenciaAtiva', addr: 53150, qty: 2, type: 'f32' },\n    { name: 'Gerador.G1MAISG2.PotenciaAtiva', addr: 53154, qty: 2, type: 'f32' },\n\n    // --- MOENDA (Floats + Bit) ---\n    { name: 'Moenda.PrimeiroAcionamento.RPM', addr: 53240, qty: 2, type: 'f32' },\n    { name: 'Moenda.Rotacao.VPM', addr: 53242, qty: 2, type: 'f32' },\n    { name: 'Moenda.Desfibrador.RPM', addr: 53244, qty: 2, type: 'f32' },\n    { name: 'Moenda.AguaEmbebicao.Temperatura', addr: 53246, qty: 2, type: 'f32' },\n    { name: 'Moenda.TanqueEmbebicao.Nivel', addr: 53248, qty: 2, type: 'f32' },\n    { name: 'Moenda.TotalizadorAguaEmbebicao.Vazao', addr: 53078, qty: 2, type: 'f32' },\n    { name: 'Moenda.TotalizadorAguaEmbebicaoANT.Vazao', addr: 53080, qty: 2, type: 'f32' },\n    { name: 'Moenda.Terno01.Nivel', addr: 53250, qty: 2, type: 'f32' },\n    { name: 'Moenda.AguaEmbebicao.Vazao', addr: 53252, qty: 2, type: 'f32' },\n    { name: 'Moenda.EmOperacao.Status', addr: 7600, qty: 1, type: 'bit', bit: 1 }\n];\n\nflow.set('vars_meta_mestre', vars);\n\nmsg.sequences = [];\nfor (let v of vars) {\n    msg.sequences.push({\n        name: v.name,\n        unitid: 255,\n        fc: 3,\n        address: v.addr,\n        quantity: v.qty\n    });\n}\n\nmsg.payload = Date.now();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 100,
+        "wires": [
+            [
+                "6909261f59a731fc"
+            ]
+        ]
+    },
+    {
+        "id": "6909261f59a731fc",
+        "type": "modbus-flex-sequencer",
+        "z": "12d84de413151773",
+        "name": "Sequencer Mestre",
+        "sequences": [
+            {
+                "name": "",
+                "unitid": "",
+                "fc": "FC1",
+                "address": "",
+                "quantity": ""
+            }
+        ],
+        "server": "cfg_modbus_mestre",
+        "showStatusActivities": true,
+        "showErrors": true,
+        "showWarnings": true,
+        "logIOActivities": false,
+        "useIOFile": false,
+        "ioFile": "",
+        "useIOForPayload": false,
+        "emptyMsgOnFail": false,
+        "keepMsgProperties": true,
+        "delayOnStart": false,
+        "startDelayTime": "",
+        "x": 590,
+        "y": 100,
+        "wires": [
+            [
+                "41661450957fc8a2"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "41661450957fc8a2",
+        "type": "function",
+        "z": "12d84de413151773",
+        "name": "Decodifica e Formata",
+        "func": "if (!msg.modbusRequest) return null;\nconst varName = msg.modbusRequest.name;\nconst meta = flow.get('vars_meta_mestre') || [];\nconst varInfo = meta.find(v => v.name === varName);\n\nif (!varInfo || !Array.isArray(msg.payload) || msg.payload.length === 0) return null;\n\nconst varType = varInfo.type;\nconst bitPos = varInfo.bit || 0;\nlet val = null;\n\nif (varType === 'f32') {\n    if (msg.payload.length < 2) return null;\n    const reg_low  = msg.payload[0];\n    const reg_high = msg.payload[1];\n    const buf = Buffer.alloc(4);\n    buf.writeUInt16BE(reg_high & 0xFFFF, 0);\n    buf.writeUInt16BE(reg_low  & 0xFFFF, 2);\n    val = buf.readFloatBE(0);\n} else if (varType === 'bit') {\n    const word = msg.payload[0];\n    val = (word >> bitPos) & 1;\n}\n\nif (val === null || !Number.isFinite(val)) return null;\n\nmsg.measurement = 'plc_data';\nmsg.tags = { plc: 'mestre_231' };\nmsg.payload = {\n    fields: { [varName]: val },\n    timestamp: Date.now()\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 830,
+        "y": 100,
+        "wires": [
+            [
+                "8ebaa60a28afa25f",
+                "f21dbc8946291ccd"
+            ]
+        ]
+    },
+    {
+        "id": "8ebaa60a28afa25f",
+        "type": "influxdb3-write",
+        "z": "12d84de413151773",
+        "influxdb": "cfg_influx3_mvp",
+        "name": "InfluxDB vhp_mvp",
+        "measurement": "",
+        "database": "",
+        "allowPartialWrites": false,
+        "noSync": false,
+        "x": 1080,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f21dbc8946291ccd",
+        "type": "debug",
+        "z": "12d84de413151773",
+        "name": "Dados Recebidos (Live)",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "complete": "payload.fields",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1100,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "38db39742d91bc64",
+        "type": "catch",
+        "z": "12d84de413151773",
+        "name": "Erros",
+        "scope": null,
+        "uncaught": false,
+        "x": 380,
+        "y": 200,
+        "wires": [
+            [
+                "848d569a55b28d4d"
+            ]
+        ]
+    },
+    {
+        "id": "848d569a55b28d4d",
+        "type": "debug",
+        "z": "12d84de413151773",
+        "name": "Erros ⚠️",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "complete": "true",
+        "targetType": "full",
+        "x": 580,
+        "y": 200,
+        "wires": []
+    }
+]

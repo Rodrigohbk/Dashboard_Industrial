@@ -1,0 +1,3 @@
+**/node_modules/
+nodered-data/flows_cred.json
+.env

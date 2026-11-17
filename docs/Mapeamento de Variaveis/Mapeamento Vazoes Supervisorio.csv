@@ -1,0 +1,99 @@
+﻿Planilha de endereços e identificação de variáveis para elaboração do DashBoard MVP - Mínimo Produto Viável ;;;;;
+Setor Responsável ;IP CLP Origem Informacao;Endereço no Supervisório ;Endereço CLP;Nomenclatura Supervisório ;Nomenclatura UNS para Aplicação WEB
+Caldeira;192.168.6.220:502:255;FP:53001;RM 500;C1_NV_CALDEIRA;Caldeira.Balao.Nivel
+Caldeira;192.168.6.220:502:255;FP:52009;RM 4;C1_PRESSÃO_VP_VIVO;Caldeira.Master.Pressao
+Caldeira;192.168.6.220:502:255;FP:52027;RM 13;C1_TEMP_VAPOR;Caldeira.VaporSuperAquecido.Temperatura
+Caldeira;192.168.6.220:502:255;FP:52013;RM 6;C1_PR_AG_ALIMENTACAO;Caldeira.AguaAlimentacao.Pressao
+Caldeira;192.168.6.228:502:255;FP:52023;RM 11;CTRL_PRESSAO_ESCAPE.PV;Caldeira.VaporEscape.Pressao
+Caldeira;192.168.6.220:502:255;FP:52019;RM 9;C1_NV_DESAERADOR;Caldeira.Desaerador.Nivel
+Caldeira;192.168.6.220:502:255;FP:52021;RM 10;C1_PR_DESAERADOR;Caldeira.Desaerador.Pressao
+Caldeira;192.168.6.220:502:255;FP:52015;RM 7;C1_NV_ABRANDADA;Caldeira.AguaAbrandada.Nivel
+Caldeira;192.168.6.220:502:255;FP:52479;RM 239;C1_MV_REDUTORA;Caldeira.RedutoraVapor.Valvula
+Caldeira;192.168.6.220:502:255;FP:52017;RM 8;CI_NV_AG_FILTRADA;Caldeira.AguaClarificada.Nivel
+Caldeira;192.168.6.220:502:255;FP:52023;RM 11;T_Temp_Desaerador;Caldeira.Desaerador.Temperatura
+Caldeira;192.168.6.220:502:255;FP:52571;RM 285;MV_Temp_Desaerador;Caldeira.ControleTemperaturaDesaerador.Valvula
+Caldeira;192.168.6.220:502:255;FP:52005;RM 2;C1_VZ_AG_ENTRADA;Caldeira.AguaEntrada.Vazao
+Caldeira;192.168.6.231:502:255;FP:53091;RM 545;FA_TOT_VZ_AG_CALD;Caldeira.TotalizadorAguaEntrada.Vazao
+Caldeira;192.168.6.231:502:255;FP:53093;RM 546;FA_TOT_VZ_AG_CALD_ANT;Caldeira.RedutoraVapor.Valvula
+Caldeira;192.168.6.220:502:255;FP:52003;RM 1;C1_VAZÃO_VP;Caldeira.VaporSaida.Vazao
+Caldeira;192.168.6.231:502:255;FP:53109;RM 554;FA_TOT_VZ_VAPOR;Caldeira.TotalizadorVapor.Vazao
+Caldeira;192.168.6.231:502:255;FP:53111;RM 555;FA_TOT_VZ_VAPOR_ANT;Caldeira.TotalizadorVaporANT.Vazao
+Caldeira;192.168.6.220:502:255;FP:52039;RM 19;DE_VZ_AGUA_BRUTA;Caldeira.AguaBruta.Vazao
+Caldeira;192.168.6.231:502:255;FP:53085;RM 542;FA_TOT_VZ_AG_BRUTA;Caldeira.TotalizadorAguaBruta.Vazao
+Caldeira;192.168.6.231:502:255;FP:53087;RM 543;FA_TOT_VZ_AG_BRUTA_ANT;Caldeira.TotalizadorAguaBrutaANT.Vazao
+Caldeira;192.168.6.220:502:255;FP:52025;RM 12;C1_VZ_AG_ABRANDADA;Caldeira.AguaAbrandada.Vazao
+Caldeira;192.168.6.231:502:255;FP:53103;RM 551;FA_TOT_VZ_ETA;Caldeira.TotalizadorAguaAbrandada.Vazao
+Caldeira;192.168.6.231:502:255;FP:53105;RM 552;FA_TOT_VZ_ETA_ANT;Caldeira.TotalizadorAguaAbrandadaANT.Vazao
+Caldeira;192.168.6.228:502:255;FP:52071;RM 35;FA_VZ_CONDENSADO;Caldeira.CondensadoEscapeV1.Vazao
+Caldeira;192.168.6.231:502:255;FP:53097;RM 548;FA_TOT_VZ_CONDENSADO;Caldeira.TotalizadorCondensado.Vazao
+Caldeira;192.168.6.231:502:255;FP:53099;RM 549;FA_TOT_VZ_CONDENSADO_ANT;Caldeira.TotalizadorCondensadoANT.Vazao
+Moenda;192.168.6.224:502:255;FP:52023;RM 11;M_RPM_MOENDA;Moenda.PrimeiroAcionamento.RPM
+Moenda;192.168.6.224:502:255;FP:52005;RM 2;M_RPM_DESFIBRADOR;Moenda.Desfibrador.RPM
+Moenda;192.168.6.224:502:255;FP:52223;RM 111;M_VPM_MOENDA;Moenda.Rotacao.VPM
+Moenda;192.168.6.224:502:255;FP:52009;RM 4;M_NIVEL_EMBEBICAO;Moenda.TanqueEmbebicao.Nivel
+Moenda;192.168.6.224:502:255;FP:52013;RM 6;M_VAZAO_EMBEBICAO;Moenda.AguaEmbebicao.Vazao
+Moenda;192.168.6.231:502:255;FP:53079;RM 539;FA_TOT_VZ_EMBEBICAO;Moenda.TotalizadorAguaEmbebicao.Vazao
+Moenda;192.168.6.231:502:255;FP:53081;RM 540;FA_TOT_VZ_EMBEBICAO_ANT;Moenda.TotalizadorAguaEmbebicaoANT.Vazao
+Moenda;192.168.6.224:502:255;FP:52007;RM 3;M_TEMP_EMBEBICAO;Moenda.AguaEmbebicao.Temperatura
+Moenda;192.168.6.224:502:255;FP:53081;RM 540;M_NIVEL_TERNO_1;Moenda.Terno01.Nivel
+Moenda;192.168.6.224:502:255;4X:8191.1;WM 1190.1;MOENDA_1;Moenda.EmOperacao.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11001.14;WM 4000.14;FA_CENTRIFUGA_1_ST;Fabrica.BMA01MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11001.15;WM 4000.15;FA_CENTRIFUGA_2_ST;Fabrica.BMA02MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.0;WM 4001.0;FA_CENTRIFUGA_3_ST;Fabrica.BMA03MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.1;WM 4001.1;FA_CENTRIFUGA_4_ST;Fabrica.BMA04MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.2;WM 4001.2;FA_CENTRIFUGA_5_ST;Fabrica.BMA05MassaA.Status
+Centrifogas Massa A;192.168.6.231:502:255;4X:11002.13;WM 4001.13;FA_CENTRIFUGA_6_ST;Fabrica.BMA06MassaA.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11001.11;WM 4000.11;FA_KONT_1_ST;Fabrica.KONT01MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11001.12;WM 4000.12;FA_KONT_2_ST;Fabrica.KONT02MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11002.15;WM 4000.13;FA_KONT_3_ST;Fabrica.KONT03MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11003.5;WM 4002.5;FA_KONT_4_ST;Fabrica.KONT04MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11003.6;WM 4002.6;FA_KONT_5_ST;Fabrica.KONT05MassaB.Status
+Centrifogas Massa B;192.168.6.231:502:255;4X:11003.8;WM 4002.8;FA_KONT_6_ST;Fabrica.KONT06MassaB.Status
+Fabrica;192.168.6.228:502:255;FP:52027;RM 13;CTRL_NIVEL_TQ_CALDO_DOSADO_02.PV;Fabrica.Dosado.Nivel
+Fabrica;192.168.6.228:502:255;FP:52001;RM 0 ;CTRL_PH_CALDO_CALEADO.PV;Fabrica.PH.Medicao
+Fabrica;192.168.6.228:502:255;FP:52015;RM 7;LT_040_0801_PV;Fabrica.Clarificado.Nivel
+Fabrica;192.168.6.228:502:255;FP:52005;RM 2;TT_040_0301_PV;Fabrica.Decantador.Temperatura
+Fabrica;192.168.6.228:502:255;FP:52025;RM 12;CTRL_ALIVIO_LINHA_0_8KG.PV;Fabrica.V1.Pressao
+Fabrica;192.168.6.228:502:255;FP:52017;RM 8;FA_PRESSAO_AGUA_BRUTA;Fabrica.AguaBruta.Pressao
+Fabrica;192.168.6.228:502:255;FP:52077;RM 38;CORR_BBA_CALDO_CLARIF_1;Fabrica.Dosado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53073;RM 536;FA_TOT_VZ_DOSADO;Fabrica.TotalizadorDosado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53075;RM 537;FA_TOT_VZ_DOSADO_ANT;Fabrica.TotalizadorDosadoANT.Vazao
+Fabrica;192.168.6.228:502:255;FP:52031;RM 15;FA_CTRL_VAZAO_CLARIFICADO.PV;Fabrica.Clarificado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53067;RM 533;FA_TOT_VZ_CLARIFICADO;Fabrica.TotalizadorClarificado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53069;RM 534;FA_TOT_VZ_CLARIFICADO_ANT;Fabrica.TotalizadorClarificadoANT.Vazao
+Fabrica;192.168.6.228:502:255;FP:52079;RM 39;CORR_BBA_CALDO_CLARIF_2;Fabrica.Filtrado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53061;RM 530;FA_TOT_VZ_FILTRADO;Fabrica.TotalizadorFiltrado.Vazao
+Fabrica;192.168.6.231:502:255;FP:53063;RM 531;FA_TOT_VZ_FILTRADO_ANT;Fabrica.TotalizadorFiltradoANT.Vazao
+Fabrica;192.168.6.228:502:255;FP:52081;RM 40;CORR_BBA_CALDO_DOSADO_1;Fabrica.Xarope.Vazao
+Fabrica;192.168.6.231:502:255;FP:53055;RM 527;FA_TOT_VZ_XAROPE;Fabrica.TotalizadorXarope.Vazao
+Fabrica;192.168.6.231:502:255;FP:53057;RM 528;FA_TOT_VZ_XAROPE_ANT;Fabrica.TotalizadorXaropeANT.Vazao
+Fabrica;192.168.6.231:502:255;FP:52017;RM 8;FA_VZ_MELFINAL;Fabrica.MelFinal.Vazao
+Fabrica;192.168.6.231:502:255;FP:53049;RM 524;FA_TOT_VZ_MELFINAL;Fabrica.TotalizadorMelFinal.Vazao
+Fabrica;192.168.6.231:502:255;FP:53051;RM 525;FA_TOT_VZ_MELFINAL_ANT;Fabrica.TotalizadorMelFinalEND.Vazao 
+Fabrica;192.168.6.228:502:255;FP:52085;RM 42;FA_VZ_LODO;Fabrica.Lodo.Vazao
+Fabrica;192.168.6.231:502:255;FP:52825;RM 412;FA_TOT_VZ_LODO;Fabrica.TotalizadorLodo.Vazao
+Fabrica;192.168.6.231:502:255;FP:52827;RM 413;FA_TOT_VZ_LODO_ANT;Fabrica.TotalizadorLodoEND.Vazao
+Fabrica;192.168.6.231:502:255;FP:52007;RM 3;FA_NIVEL_CRISTALIZ_A;Fabrica.MassaA.Nivel
+Fabrica;192.168.6.231:502:255;FP:52003;RM 1;FA_NIVEL_CRISTALIZ_B;Fabrica.MassaB.Nivel
+Fabrica;192.168.6.231:502:255;FP:52027;RM 13;FA_NV_TQ_XAROPE;Fabrica.Xarope.Nivel
+Fabrica;192.168.6.228:502:255;FP:52033;RM 16;TB_040_01;Fabrica.BrixXarope.Valor
+Gerador;192.168.6.65:502:255;FP:54067;RM 1033;G1_TENSAO;Gerador.G1.Tensao
+Gerador;192.168.6.65:502:255;FP:54073;RM 1036;G1_CORRENTE;Gerador.G1.Corrente
+Gerador;192.168.6.65:502:255;FP:52001;RM 0 ;G1_RPM;Gerador.G1.RPM
+Gerador;192.168.6.65:502:255;FP:54113;RM 1056;G1_FREQUENCIA;Gerador.G1.Frequencia
+Gerador;192.168.6.231:502:255;FP:53043;RM 521;FA_TOT_POTENCIA_G1;Gerador.TotalizadorG1.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53045;RM 522;FA_TOT_POTENCIA_G1_ANT;Gerador.TotalizadorG1ANT.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53155;RM 577;G1_G2_POTENCIA_ATIVA;Gerador.G1MAISG2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53149;RM 574;FA_TOT_POTENCIA_G1_G2;Gerador.TotalizadorG1G2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53151;RM 575;FA_TOT_POTENCIA_G1_G2_DIA;Gerador.TotalizadorG1G2ANT.PotenciaAtiva
+Gerador;192.168.6.65:502:255;FP:54225;RM 1112;G2_TENSAO;Gerador.G2.Tensao
+Gerador;192.168.6.65:502:255;FP:54235;RM 1117;G2_CORRENTE;Gerador.G2.Corrente
+Gerador;192.168.6.65:502:255;FP:52041;RM 20;G2_RPM;Gerador.G2.RPM
+Gerador;192.168.6.65:502:255;FP:54213;RM 1106;G2_FREQUENCIA;Gerador.G2.Frequencia
+Gerador;192.168.6.65:502:255;4X:32141;DM 70;G2_POTENCIA_ATIVA;Gerador.G2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53155;RM 577;G1_G2_POTENCIA_ATIVA;Gerador.G1MAISG2.PotenciaAtiva
+Gerador;192.168.6.231:502:255;FP:53143;RM 571;G2_POTENCIA_TOTALIZADA;Gerador.TotalizadorG2.PotenciaAtiva
+Concessionária;192.168.6.65:502:255;FP:54007;RM 1003;CON_TENSAO;Concessionaria.Tensao
+Concessionária;192.168.6.65:502:255;FP:54013;RM 1006;CON_CORRENTE;Concessionaria.Corrente
+Concessionária;192.168.6.65:502:255;FP:54021;RM 1010;CON_POTENCIA;Concessionaria.Potencia 
+Concessionária;192.168.6.65:502:255;FP:54053;RM 1026;CON_FREQUENCIA;Concessionaria.Frequencia

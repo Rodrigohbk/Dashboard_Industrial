@@ -1,0 +1,75 @@
+{
+  "version": "1",
+  "node_id": "node0",
+  "next_file_id": 1804,
+  "snapshot_sequence_number": 47,
+  "wal_file_sequence_number": 32076,
+  "catalog_sequence_number": 1406,
+  "parquet_size_bytes": 30133,
+  "row_count": 1478,
+  "min_time": 1793300130616000000,
+  "max_time": 1793301599777000000,
+  "databases": [
+    [
+      3,
+      {
+        "tables": [
+          [
+            0,
+            [
+              {
+                "id": 1800,
+                "path": "node0/dbs/3/0/2026-10-29/18-50/0000032076.parquet",
+                "size_bytes": 4286,
+                "row_count": 161,
+                "chunk_time": 1793299800000000000,
+                "min_time": 1793300130616000000,
+                "max_time": 1793300399764000000
+              },
+              {
+                "id": 1803,
+                "path": "node0/dbs/3/0/2026-10-29/19-00/0000032076.parquet",
+                "size_bytes": 4181,
+                "row_count": 161,
+                "chunk_time": 1793300400000000000,
+                "min_time": 1793300400178000000,
+                "max_time": 1793300665633000000
+              }
+            ]
+          ]
+        ]
+      }
+    ],
+    [
+      2,
+      {
+        "tables": [
+          [
+            0,
+            [
+              {
+                "id": 1801,
+                "path": "node0/dbs/2/0/2026-10-29/19-00/0000032076.parquet",
+                "size_bytes": 6954,
+                "row_count": 196,
+                "chunk_time": 1793300400000000000,
+                "min_time": 1793300878536000000,
+                "max_time": 1793300999759000000
+              },
+              {
+                "id": 1802,
+                "path": "node0/dbs/2/0/2026-10-29/19-10/0000032076.parquet",
+                "size_bytes": 14712,
+                "row_count": 960,
+                "chunk_time": 1793301000000000000,
+                "min_time": 1793301000173000000,
+                "max_time": 1793301599777000000
+              }
+            ]
+          ]
+        ]
+      }
+    ]
+  ],
+  "removed_files": []
+}

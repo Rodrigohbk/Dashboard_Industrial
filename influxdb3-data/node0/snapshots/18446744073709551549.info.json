@@ -1,0 +1,36 @@
+{
+  "version": "1",
+  "node_id": "node0",
+  "next_file_id": 1830,
+  "snapshot_sequence_number": 66,
+  "wal_file_sequence_number": 43611,
+  "catalog_sequence_number": 1503,
+  "parquet_size_bytes": 118679,
+  "row_count": 6663,
+  "min_time": 1793723400065000000,
+  "max_time": 1793723999917000000,
+  "databases": [
+    [
+      2,
+      {
+        "tables": [
+          [
+            0,
+            [
+              {
+                "id": 1829,
+                "path": "node0/dbs/2/0/2026-11-03/16-30/0000043611.parquet",
+                "size_bytes": 118679,
+                "row_count": 6663,
+                "chunk_time": 1793723400000000000,
+                "min_time": 1793723400065000000,
+                "max_time": 1793723999917000000
+              }
+            ]
+          ]
+        ]
+      }
+    ]
+  ],
+  "removed_files": []
+}

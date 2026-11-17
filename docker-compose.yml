@@ -1,0 +1,254 @@
+# ============================================================
+#  docker-compose.yml — Monitoramento da Usina VHP
+# ============================================================
+#  AUTOR:      Rodrigo Honda
+#  DATA:       30/09/2026
+#  VERSÃO:     1.0
+#
+#  O QUE É ESTE ARQUIVO:
+#    É a "receita" que o Docker usa para montar a aplicação.
+#    Aqui estão declarados os 4 serviços (InfluxDB, Node-RED,
+#    Grafana, Explorer) e como eles conversam entre si.
+#
+#  COMO USAR:
+#    Ligar:    docker compose up -d
+#    Desligar: docker compose down
+#    Status:   docker compose ps
+#    Logs:     docker compose logs <nome-do-servico>
+#
+#  ORDEM DE INICIALIZAÇÃO:
+#    O InfluxDB sobe primeiro. O Node-RED, Grafana e Explorer
+#    só sobem quando o InfluxDB estiver "saudável" (healthcheck).
+#    Isso evita erros de "connection refused" após uma queda.
+#
+#  DOCUMENTAÇÃO COMPLETA:
+#    Ver docs/ARQUITETURA.md e docs/MANUTENCAO.md
+# ============================================================
+
+name: usina-monitor
+
+
+# ------------------------------------------------------------
+#  REDE INTERNA
+# ------------------------------------------------------------
+#  Cria uma rede virtual isolada onde os 4 contêineres se
+#  enxergam pelo nome do serviço (ex: "influxdb3-core"), sem
+#  depender de IP. Nenhum outro programa do Windows tem acesso
+#  a essa rede — é uma rede privada do Docker.
+# ------------------------------------------------------------
+networks:
+  monitoring-net:
+    driver: bridge
+
+
+services:
+
+  # ─────────────────────────────────────────────
+  # 1. InfluxDB 3 Core — Banco de série temporal
+  # ─────────────────────────────────────────────
+  #  O QUE FAZ:
+  #    Armazena todos os dados de processo com data e hora.
+  #    Funciona como um "livro-caixa" gigante, otimizado para
+  #    consultas do tipo "mostre a temperatura da última hora".
+  #
+  #  VERSÃO FIXA (3.11-core):
+  #    Fixamos a tag para não sermos surpreendidos em um upgrade
+  #    automático futuro. Se um dia trocar, TESTAR TUDO.
+  #
+  #  SOBRE O user: "1500:1500":
+  #    O contêiner roda internamente com o usuário de ID 1500.
+  #    Isso é uma prática de segurança (não roda como root).
+  #    Se as pastas do bind mount no Windows não pertencerem a
+  #    esse UID, o InfluxDB falha com "Permission denied".
+  #    Correção documentada em docs/POPs/POP-002-recuperar-wal.md
+  # ─────────────────────────────────────────────
+  influxdb3-core:
+    image: influxdb:3.11-core
+    container_name: influxdb3-core
+    hostname: influxdb3-core
+    user: "1500:1500"
+    ports:
+      - "8181:8181"                # API HTTP + Flight SQL (usado pelo Grafana)
+    volumes:
+      # Bind mount: pasta do Windows ligada a pasta do contêiner.
+      # Vantagem: os dados sobrevivem mesmo se o contêiner for apagado.
+      - ./influxdb3-data:/var/lib/influxdb3/data
+      - ./influxdb3-plugins:/var/lib/influxdb3/plugins
+    networks:
+      - monitoring-net
+    command:
+      - influxdb3
+      - serve
+      - --node-id=node0
+      - --object-store=file
+      - --data-dir=/var/lib/influxdb3/data
+      - --plugin-dir=/var/lib/influxdb3/plugins
+      # Fixa a concorrência de triggers em 8 (valor que será o
+      # padrão em versões futuras). Sem isso, aparecia um aviso
+      # nos logs, e em upgrades futuros o valor poderia mudar.
+      - --async-trigger-concurrency-limit=8
+
+    environment:
+      - TZ=America/Sao_Paulo       # Fuso horário dos logs e do processo
+
+    healthcheck:
+      # Testa se a porta 8181 está respondendo. Quando este teste
+      # passa, o Docker marca o serviço como "healthy" e libera
+      # a inicialização do Node-RED, Grafana e Explorer.
+      #
+      # Usamos /dev/tcp em vez de curl/wget porque a imagem oficial
+      # do InfluxDB NÃO tem essas ferramentas instaladas.
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/localhost/8181'"]
+      interval: 10s                # testa a cada 10 segundos
+      timeout: 5s                  # considera falha se não responder em 5s
+      retries: 12                  # após o start_period, tolera 12 falhas
+      # start_period de 120s: tolera WAL replay longo após queda
+      # de energia, sem marcar o serviço como "unhealthy" por engano.
+      start_period: 120s
+    restart: unless-stopped        # sobe automático, exceto se desligado manualmente
+
+
+  # ─────────────────────────────────────────────
+  # 2. Node-RED — Coleta Modbus e envio ao InfluxDB
+  # ─────────────────────────────────────────────
+  #  O QUE FAZ:
+  #    É o "cérebro da coleta". Pergunta periodicamente ao CLP
+  #    quais são os valores atuais das variáveis (polling) e
+  #    envia para o InfluxDB. Funciona como uma linha de contatores,
+  #    mas para dados em vez de energia.
+  #
+  #  ACESSO:
+  #    http://localhost:1880 — é lá que se edita visualmente.
+  #
+  #  SOBRE O user: "1000:1000":
+  #    Mesma lógica do InfluxDB. O Node-RED roda com UID 1000,
+  #    então a pasta nodered-data/ precisa pertencer a esse UID.
+  #
+  #  ⚠️  SOBRE A credentialSecret:
+  #    É a chave usada para criptografar tokens (ex: token do
+  #    InfluxDB). Se ela mudar, as credenciais salvas ficam
+  #    ILEGÍVEIS e será necessário recadastrar o token no nó
+  #    influxdb3-config. NÃO ALTERE sem ler POP-003.
+  # ─────────────────────────────────────────────
+  nodered:
+    image: nodered/node-red:4.1.13-22
+    container_name: nodered
+    hostname: nodered
+    user: "1000:1000"
+    ports:
+      - "1880:1880"                # interface web do Node-RED
+    volumes:
+      - ./nodered-data:/data       # fluxos, credenciais, settings.js
+    networks:
+      - monitoring-net
+    environment:
+      - TZ=America/Sao_Paulo
+      - FLOWS=flows.json           # arquivo de fluxos a carregar no boot
+      # ATENÇÃO: este valor deve ser IGUAL ao credentialSecret
+      # definido em nodered-data/settings.js. Se diferirem, o
+      # Node-RED não descriptografa as credenciais salvas.
+      - NODE_RED_CREDENTIAL_SECRET="LV^TKllnfqVnKdD8w&0daL4krDwoMXvv0aNff2Y!7^1WjcBNW))l)i6s)M@9u@)("
+    healthcheck:
+      # Testa se a porta 1880 está respondendo.
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/localhost/1880'"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s            # Node-RED inicia rápido
+    depends_on:
+      influxdb3-core:
+        condition: service_healthy # só sobe depois que o InfluxDB estiver OK
+    restart: unless-stopped
+
+
+  # ─────────────────────────────────────────────
+  # 3. Grafana — Visualização
+  # ─────────────────────────────────────────────
+  #  O QUE FAZ:
+  #    Exibe os dados do InfluxDB em gráficos e painéis web.
+  #    Equivale a um "supervisório simplificado", mas acessível
+  #    de qualquer navegador da rede.
+  #
+  #  ACESSO:
+  #    http://localhost:3000 — admin / usina@2025
+  #
+  #  ⚠️  SOBRE A CONEXÃO COM O INFLUXDB:
+  #    A fonte de dados do Grafana usa a opção "Insecure Connection"
+  #    (TLS desabilitado). Isso é seguro porque os contêineres
+  #    conversam em uma rede Docker isolada. Se um dia a arquitetura
+  #    mudar (ex: InfluxDB em outro servidor), REAVALIAR.
+  #
+  #  ⚠️  SOBRE A SENHA:
+  #    GF_SECURITY_ADMIN_PASSWORD só é aplicada na PRIMEIRA subida.
+  #    Depois, a senha fica gravada em grafana-data/. Para trocar
+  #    a senha, ver docs/MANUTENCAO.md, seção Segurança.
+  # ─────────────────────────────────────────────
+  grafana:
+    image: grafana/grafana:12.3.10
+    container_name: grafana
+    hostname: grafana
+    ports:
+      - "3000:3000"                # interface web do Grafana
+    volumes:
+      - ./grafana-data:/var/lib/grafana   # dashboards, plugins, banco interno
+    networks:
+      - monitoring-net
+    environment:
+      - TZ=America/Sao_Paulo
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=usina@2025
+      - GF_USERS_ALLOW_SIGN_UP=false      # desabilita auto-cadastro
+    healthcheck:
+      # O Grafana expõe /api/health que retorna 200 OK quando pronto.
+      # A imagem oficial tem wget do BusyBox, então usamos ele.
+      test: ["CMD-SHELL", "wget --spider -q http://localhost:3000/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    depends_on:
+      influxdb3-core:
+        condition: service_healthy
+    restart: unless-stopped
+
+
+  # ─────────────────────────────────────────────
+  # 4. InfluxDB 3 Explorer — Administração
+  # ─────────────────────────────────────────────
+  #  O QUE FAZ:
+  #    Interface web para consultar e gerenciar o InfluxDB.
+  #    Útil para testar consultas SQL antes de montá-las no Grafana.
+  #
+  #  ACESSO:
+  #    http://localhost:8080
+  #
+  #  SOBRE O bind mount ./explorer-db:
+  #    O Explorer guarda suas configurações em um SQLite interno.
+  #    Sem este bind mount, as conexões cadastradas seriam perdidas
+  #    a cada reinício do contêiner. Já perdemos esse cadastro uma
+  #    vez antes de configurar o bind mount — não remover.
+  # ─────────────────────────────────────────────
+  influxdb3-explorer:
+    image: influxdata/influxdb3-ui:1.9.0
+    container_name: influxdb3-explorer
+    hostname: influxdb3-explorer
+    ports:
+      - "8080:8080"                # interface web (HTTP)
+      - "8443:8443"                # interface web (HTTPS, reservado para futuro)
+    volumes:
+      - ./explorer-db:/db          # persistência do SQLite interno
+    networks:
+      - monitoring-net
+    environment:
+      - TZ=America/Sao_Paulo
+      - SESSION_SECRET_KEY=troque-esta-chave-em-producao
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/localhost/8080'"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 30s
+    depends_on:
+      influxdb3-core:
+        condition: service_healthy
+    restart: unless-stopped

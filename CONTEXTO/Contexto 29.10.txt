@@ -1,0 +1,95 @@
+Estado Atual do Projeto - Monitoramento Usina VHP
+1. Visão Geral e Infraestrutura
+Objetivo: MVP de monitoramento para usina de açúcar VHP.
+
+Stack:
+
+Docker (Windows 10)
+
+Node-RED (v4.1.13-22, UID 1000)
+
+InfluxDB 3 Core (v3.11-core) na porta 8181 (API HTTP/Flight).
+
+Grafana (v12.3.10) - Nota: Usar SQL (Flight SQL) ou InfluxQL, pois a v3 não suporta Flux.
+
+InfluxDB 3 Explorer (v1.9.0) na porta 8080.
+
+Banco de Dados: O banco definitivo para o MVP chama-se vhp_mvp.
+
+Autenticação: Token do InfluxDB já configurado e validado.
+
+2. Regras de Negócio e Comunicação (Invariantes)
+CLP: Fertron Citrino FX.
+
+Comunicação: Modbus/TCP, Porta 502, Unit ID 255, Função 03.
+
+Endereçamento: 0-based. O endereço no CSV (FP:X ou 4X:Y) deve ser subtraído em 1 para a leitura (address: X - 1).
+
+Tipos de Dados:
+
+Analógicos (FP): Float32, 2 registradores, ordem de palavras trocadas (CDAB).
+
+Digitais/Bits (WM ou 4X com bit): 1 registrador, ler a palavra inteira e extrair o bit via deslocamento (>> e & 1).
+
+Polling: 5 segundos por ciclo.
+
+3. O "Padrão de Ouro" (Node-RED Validado)
+Após vários testes com timeouts (ECONNRESET, Timed out, queue cleared), a arquitetura que se provou 100% estável foi:
+
+Leitura Individual: 1 nó modbus-flex-getter para cada variável (não agrupar em blocos grandes).
+
+Injetores Escalonados: Os injetores disparam a cada 5s, mas com onceDelay defasados (ex: 0.1, 0.4, 0.7...). Isso evita sobrecarga na fila do CLP.
+
+Decodificação (Float32 CDAB):
+
+javascript
+const reg_low  = msg.payload[0];
+const reg_high = msg.payload[1];
+const buf = Buffer.alloc(4);
+buf.writeUInt16BE(reg_high & 0xFFFF, 0);
+buf.writeUInt16BE(reg_low  & 0xFFFF, 2);
+const val = buf.readFloatBE(0);
+Envio para o InfluxDB 3:
+
+Measurement: plc_data
+
+Tag: plc: 'NomeDoSetor' (ex: Moenda ou 228)
+
+Payload Format:
+
+json
+msg.payload = {
+    fields: { [msg.topic]: val },
+    timestamp: Date.now()
+};
+4. Status dos CLPs (O que já foi feito)
+✅ Moenda (192.168.6.224)
+Status: Concluído e testado com sucesso.
+
+Variáveis: 8 (7 Float32 + 1 Bit de Status).
+
+Tag InfluxDB: plc: 'Moenda'.
+
+✅ Evaporação / Fábrica (192.168.6.228)
+Status: Concluído (JSON entregue).
+
+Variáveis: 14 (Todas Float32, mistura de Fábrica e Caldeira).
+
+Tag InfluxDB: plc: '228'.
+
+⏸️ Caldeira (192.168.6.220)
+Status: Postergado para o final do MVP.
+
+Motivo: O CLP apresenta quedas de conexão e timeouts em qualquer configuração (mesmo com poucas variáveis). O problema não é o código Node-RED, mas sim a rede física ou a configuração do próprio CLP da Caldeira.
+
+⏳ Pendentes
+CLP 192.168.6.231 (Fábrica) - Aguardando CSV.
+
+CLP 192.168.6.65 - Aguardando CSV.
+
+5. Próximos Passos
+Receber o CSV do próximo CLP (provavelmente .231 ou .65).
+
+Gerar o JSON Node-RED aplicando o "Padrão de Ouro", alterando IP, endereços, delays e a tag do InfluxDB.
+
+Após coletar todos os CLPs, iniciar a montagem dos dashboards no Grafana utilizando a tag plc para filtrar os setores e o SQL para consultar as variáveis.

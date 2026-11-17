@@ -1,0 +1,130 @@
+# ESTADO ATUAL — Projeto Monitoramento Usina VHP
+**Data:** 03/10/2026
+**Sessão:** Fase 1 (Filtragem) do CLP Evaporação — em andamento
+
+---
+
+## ✅ CONCLUÍDO
+
+### Infraestrutura e Documentação
+- Stack Docker rodando (InfluxDB 3, Node-RED, Grafana, Explorer)
+- Documentação em `docs/`: GLOSSARIO, ARQUITETURA, MANUTENCAO, PADROES_CODIGO, POPs 001-004
+- Bind mounts em `C:\usina-monitor\`
+
+### CLP Fábrica (192.168.6.231)
+- ~200 variáveis mapeadas e rodando em produção
+- Manifest-driven flow implementado
+- Referência cruzada em `docs/REFERENCIA_CRUZADA_FABRICA.csv`
+
+### Convenções estabelecidas
+- Unit ID: 255 | FC: 3 (leitura) | Protocolo 0-based (CSV - 1)
+- Float32: ordem CDAB (word-swapped)
+- Polling: 5 segundos
+- UNS: `Setor.Equipamento.Grandeza`
+- Sufixos PID: .SP→setpoint, .KP→pid_ganho, .RT→pid_integral,
+  .DT→pid_derivativo, .MV→saida_pid, .AM→modo_auto_manual,
+  .ST→em_operacao, .LG→comando_ligar, .DL→comando_desligar
+
+### Fórmulas CLP Citrino FX
+- ST: índice | DI: 1000+bloco(16) | DO: 2000+bloco(16)
+- AI: 3000+índice | AO: 5000+índice
+- WM: 7001+índice_WM | DM: 32001+(índice×2)
+- DF: 42001+(índice×2) | RM: 52001+(índice×2)
+
+### CLP Evaporação — Fase 0 (Inventário)
+- Limites de memória documentados:
+  ST=256, DI=2048, DO=2048, AI=1024, AO=1024,
+  WM=15330, WF=2048, DM=2048, DF=2048, RM=1535
+- CSV de tags do Citrino Tools: `docs/CLP_EVAPORACAO_TAGS.csv`
+- CSV do supervisório: `docs/TAGS_SUPERVISORIO_EVAPORACAO.csv`
+
+### CLP Evaporação — Fase 1 (Filtragem)
+- **Lote 1 (RM 0-19): CONCLUÍDO** — 20 variáveis, todas relevantes
+  - Descoberta: RMs sem tag no CLP (RM 16-19) ESTÃO em uso no Ladder
+- **Lote 2 (RM 20-49): PENDENTE** — CSV gerado, aguardando preenchimento
+
+---
+
+## 🔄 EM ANDAMENTO
+
+### Fase 1 do CLP Evaporação
+- Método: lotes de 30 RMs, você verifica no Ladder
+- Preencher 3 colunas: "Usado no Ladder?", "Relevante?", "Observação"
+- Próximos lotes: RM 50-79, 80-109, ..., até RM 1535
+
+### ⚠️ Conflitos Pendentes no Lote 2
+Investigar no Ladder:
+- **RM 37 (FP:52075):** `RPM_BBA_POLIMERO` ou `TEMP_CAIXA6`?
+- **RM 38 (FP:52077):** `CORR_BBA_CALDO_CLARIF_1` ou `CTRL_VAZAO_TQ_CALDO_CALEADO.PV`?
+- **RM 41 (FP:52083):** `CORR_BBA_CALDO_DOSADO_2`, `CTRL_ESCAPE_2EFEITO.PV` ou `pressão_caixa_3`?
+
+---
+
+## ⏸️ PENDENTE
+
+1. Concluir Fase 1 do CLP Evaporação (todos os lotes)
+2. Fase 2: Nomenclatura UNS do Evaporação
+3. Fase 3: Manifest JSON
+4. Fase 4: Implementação no Node-RED
+5. **Revisar mapeamento da Fábrica** (identificamos que pode ter erros similares)
+6. Repetir processo para: Moenda, Caldeira, Gerador
+7. Dashboards Grafana | Acesso remoto HTTPS
+8. Produção: Git, backup automático, nobreak
+
+---
+
+## 🎯 PRÓXIMO PASSO IMEDIATO
+
+Você preenche e me envia o **Lote 2** (`FASE1_LOTE2.csv`):
+- Coluna "Usado no Ladder?": S/N (verificar via Editar → Localizar)
+- Coluna "Relevante?": S/N
+- Coluna "Observação": o que a variável mede
+
+Depois disso, gero o **Lote 3** (RM 50-79).
+
+---
+
+## ⚠️ LIÇÕES APRENDIDAS
+
+1. **Ausência de tag no Citrino NÃO significa ausência de uso** — RMs podem existir sem nome (confirmado com RM 16-19).
+2. **Fórmula RM deve ser validada contra limites reais** — o CLP Evaporação tem RM máx 1535.
+3. **Programas Ladder da usina NÃO são padronizados** — cada CLP pode ter convenções diferentes.
+4. **Sempre cruzar 3 fontes**: CSV do CLP + Ladder + CSV do supervisório.
+5. **Processar em lotes pequenos** (30 linhas por vez).
+6. **Sessões curtas** — 1 fase por sessão.
+7. **Sempre começar a nova sessão colando este arquivo.**
+
+---
+
+## 📚 REFERÊNCIAS
+
+| Assunto | Onde buscar |
+|---|---|
+| Fluxo Fábrica funcional | Aba "Fabrica - Producao" no Node-RED |
+| Endereços Fábrica | `docs/REFERENCIA_CRUZADA_FABRICA.csv` |
+| POPs operacionais | `docs/POPs/` |
+| Convenções de código | `docs/PADROES_CODIGO.md` |
+| Manual CLP | PDF "CITRINO-FX_Manual_pt_v1.pdf" |
+| Manual Software | PDF "Manual Software Citrino Tools.pdf" |
+| Livros de referência | engsoftmoderna.info e manutencaosoftware.org |
+
+---
+
+## 🔧 DADOS TÉCNICOS
+
+### IPs dos CLPs
+- Fábrica: 192.168.6.231
+- Evaporação: 192.168.6.228
+- Moenda: 192.168.6.224
+- Caldeira: 192.168.6.220
+- Gerador: 192.168.6.65
+
+### Serviços
+- Node-RED: 1880 | Grafana: 3000 | InfluxDB: 8181 | Explorer: 8080
+
+### Diretório
+`C:\usina-monitor\`
+
+### Arquivos da Fase 1
+- `docs/FASE1.csv` (Lote 1 — concluído)
+- `docs/FASE1_LOTE2.csv` (Lote 2 — pendente)

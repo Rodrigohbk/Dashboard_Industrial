@@ -1,0 +1,45 @@
+# ESTADO ATUAL — Projeto Monitoramento Usina VHP
+**Data:** 17/10/2026
+**Sessão anterior:** Pausa no mapeamento completo do CLP Evaporação para focar em um MVP.
+
+---
+
+## 🎯 NOVO OBJETIVO (MVP)
+- **Foco:** Entregar um Produto Mínimo Viável (MVP) funcionando para o cliente o quanto antes.
+- **Escopo reduzido:** Não vamos mapear as 347 variáveis do CLP Evaporação agora.
+- **Ação:** O usuário fornecerá uma lista curta de endereços específicos (ex: 5 a 10 variáveis). Criaremos um manifest enxuto, subiremos para o InfluxDB e montaremos um dashboard direto no Grafana.
+
+---
+
+## ✅ O QUE JÁ ESTÁ PRONTO (INFRAESTRUTURA)
+- **Stack Docker rodando:** Node-RED, InfluxDB 3 Core, Grafana, Explorer.
+- **Documentação:** POPs operacionais, glossário e padrões de código criados.
+- **CLP Fábrica (192.168.6.231):** ~200 variáveis mapeadas e rodando (manifest funcional).
+- **CLP Evaporação (192.168.6.228):** Fases 0, 1 e 2 concluídas. O CSV consolidado com as 347 variáveis nomeadas está pronto em `docs/FASE2_CONSOLIDADO_EVAPORACAO.csv`.
+
+---
+
+## ⚠️ ONDE PARAMOS (MOTIVO DA PAUSA)
+- Estávamos gerando o Manifest JSON do Evaporação (Fase 3).
+- **Erro atual:** O Node-RED apresentou o erro `Modbus queue cleared on reconnect` e `Modbus Failure On State`. 
+- **Causa provável:** Blocos de leitura muito grandes (ex: 180 registradores) estourando o timeout do CLP. (A ser resolvido no futuro dividindo os blocos).
+
+---
+
+## 🛠️ CONVENÇÕES TÉCNICAS (NÃO ESQUECER)
+- **Modbus:** Unit ID `255`, Função `03` (Read Holding Registers), Endereço 0-based (`CSV - 1`).
+- **Float32:** Ordem `CDAB` (word-swapped).
+- **Padrão UNS:** `Setor.Equipamento.Grandeza_Sufixo`
+  - Sufixos PID: `_PV`, `_SP`, `_KP`, `_RTM`, `_DTM`, `_MV`
+  - Status: `_em_operacao`, `_auto_manual`
+  - Comandos: `_liga_desliga`, `_abre_fecha`
+- **Fórmulas CLP Citrino:**
+  - WM (bit/word): `HR = Índice_WM + 7001`
+  - RM (float): `HR = (Índice_RM * 2) + 52001`
+
+---
+
+## 🚦 PRÓXIMO PASSO (NA NOVA CONVERSA)
+1. O usuário vai enviar a lista de endereços específicos para o MVP.
+2. A IA vai gerar o JSON enxuto do Node-RED (Manifest + Decoder) para esses endereços.
+3. O usuário vai criar o Dashboard no Grafana.
