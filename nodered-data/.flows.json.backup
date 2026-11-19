@@ -226,8 +226,8 @@
         "serialConnectionDelay": "100",
         "serialAsciiResponseStartDelimiter": "",
         "unit_id": 255,
-        "commandDelay": "75",
-        "clientTimeout": 5000,
+        "commandDelay": 100,
+        "clientTimeout": "10000",
         "reconnectOnTimeout": true,
         "reconnectTimeout": 10000,
         "parallelUnitIdsAllowed": false,
@@ -2363,7 +2363,7 @@
                 "p": "payload"
             }
         ],
-        "repeat": "15",
+        "repeat": "20",
         "crontab": "",
         "once": true,
         "onceDelay": 0.1,

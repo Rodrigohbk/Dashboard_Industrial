@@ -136,7 +136,7 @@ services:
     hostname: nodered
     user: "1000:1000"
     ports:
-      - "1880:1880"                # interface web do Node-RED
+      - "0.0.0.0:1880:1880"                # interface web do Node-RED
     volumes:
       - ./nodered-data:/data       # fluxos, credenciais, settings.js
     networks:
@@ -188,7 +188,7 @@ services:
     container_name: grafana
     hostname: grafana
     ports:
-      - "3000:3000"                # interface web do Grafana
+      - "0.0.0.0:3000:3000"                # interface web do Grafana
     volumes:
       - ./grafana-data:/var/lib/grafana   # dashboards, plugins, banco interno
     networks:
@@ -198,6 +198,7 @@ services:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=usina@2025
       - GF_USERS_ALLOW_SIGN_UP=false      # desabilita auto-cadastro
+      - GF_SERVER_ROOT_URL=http://172.16.13.163:3000
     healthcheck:
       # O Grafana expõe /api/health que retorna 200 OK quando pronto.
       # A imagem oficial tem wget do BusyBox, então usamos ele.
